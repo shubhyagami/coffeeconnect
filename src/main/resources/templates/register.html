@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register - CoffeeConnect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body style="background:var(--bg);">
+    <div class="container">
+        <div class="row justify-content-center" style="padding:30px 0;">
+            <div class="col-md-8">
+                <div class="text-center mb-4">
+                    <h1 style="font-family:var(--font-heading);font-size:2rem;text-transform:uppercase;letter-spacing:2px;border:4px solid var(--border);display:inline-block;padding:10px 24px;background:var(--accent);color:#fff;">☕ CoffeeConnect</h1>
+                    <p style="font-family:var(--font);margin-top:10px;color:var(--text);">CREATE YOUR EMPLOYEE ACCOUNT</p>
+                </div>
+                <div class="card" style="border:4px solid var(--border);box-shadow:8px 8px 0px var(--border);">
+                    <div class="card-body p-4">
+                        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+                        <form th:action="@{/register}" th:object="${user}" method="post" enctype="multipart/form-data" class="needs-validation">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">FIRST NAME *</label>
+                                    <input type="text" th:field="*{firstName}" class="form-control" required>
+                                    <div th:if="${#fields.hasErrors('firstName')}" class="text-danger" style="font-family:var(--font);font-size:0.75rem;" th:errors="*{firstName}"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">LAST NAME *</label>
+                                    <input type="text" th:field="*{lastName}" class="form-control" required>
+                                    <div th:if="${#fields.hasErrors('lastName')}" class="text-danger" style="font-family:var(--font);font-size:0.75rem;" th:errors="*{lastName}"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">COMPANY EMAIL *</label>
+                                    <input type="email" th:field="*{email}" class="form-control" required id="email">
+                                    <small style="font-family:var(--font);font-size:0.7rem;color:var(--text-muted);" id="emailDomainHint">USE YOUR COMPANY EMAIL</small>
+                                    <div th:if="${#fields.hasErrors('email')}" class="text-danger" style="font-family:var(--font);font-size:0.75rem;" th:errors="*{email}"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">COMPANY *</label>
+                                    <select th:field="*{companyName}" class="form-select" required id="companySelect" onchange="updateEmailHint()">
+                                        <option value="">SELECT COMPANY</option>
+                                        <option th:each="c : ${companies}" th:value="${c}" th:text="${c}"></option>
+                                    </select>
+                                    <div th:if="${#fields.hasErrors('companyName')}" class="text-danger" style="font-family:var(--font);font-size:0.75rem;" th:errors="*{companyName}"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">PASSWORD *</label>
+                                    <input type="password" th:field="*{password}" class="form-control" required>
+                                    <small style="font-family:var(--font);font-size:0.7rem;color:var(--text-muted);">MIN 8 CHARS, UPPER, LOWER, NUMBER, SPECIAL</small>
+                                    <div th:if="${#fields.hasErrors('password')}" class="text-danger" style="font-family:var(--font);font-size:0.75rem;" th:errors="*{password}"></div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">CONFIRM PASSWORD *</label>
+                                    <input type="password" th:field="*{confirmPassword}" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">GENDER *</label>
+                                    <select th:field="*{gender}" class="form-select" required>
+                                        <option value="">SELECT</option>
+                                        <option value="Male">MALE</option>
+                                        <option value="Female">FEMALE</option>
+                                        <option value="Other">OTHER</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">DATE OF BIRTH *</label>
+                                    <input type="date" th:field="*{dateOfBirth}" class="form-control" required>
+                                    <div th:if="${#fields.hasErrors('dateOfBirth')}" class="text-danger" style="font-family:var(--font);font-size:0.75rem;" th:errors="*{dateOfBirth}"></div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">EMPLOYEE ID *</label>
+                                    <input type="text" th:field="*{employeeId}" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">DEPARTMENT *</label>
+                                    <select th:field="*{department}" class="form-select" required>
+                                        <option value="">SELECT</option>
+                                        <option value="ENGINEERING">ENGINEERING</option>
+                                        <option value="DESIGN">DESIGN</option>
+                                        <option value="HR">HR</option>
+                                        <option value="CONSULTING">CONSULTING</option>
+                                        <option value="MARKETING">MARKETING</option>
+                                        <option value="SALES">SALES</option>
+                                        <option value="FINANCE">FINANCE</option>
+                                        <option value="OPERATIONS">OPERATIONS</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">DESIGNATION *</label>
+                                    <input type="text" th:field="*{designation}" class="form-control" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">CITY *</label>
+                                    <input type="text" th:field="*{city}" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">OFFICE CAMPUS</label>
+                                    <input type="text" th:field="*{officeCampus}" class="form-control">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">PROFILE PICTURE</label>
+                                    <input type="file" name="profileImage" class="form-control" accept="image/*">
+                                    <small style="font-family:var(--font);font-size:0.7rem;color:var(--text-muted);">OPTIONAL: UPLOAD A PROFILE IMAGE</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">BIO</label>
+                                <textarea th:field="*{bio}" class="form-control" rows="2" maxlength="500"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">INTERESTS</label>
+                                <input type="text" th:field="*{interests}" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" style="font-size:0.9rem;padding:12px;">CREATE ACCOUNT</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <p style="font-family:var(--font);font-size:0.8rem;">Already have an account? <a th:href="@{/login}">SIGN IN</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateEmailHint() {
+            var company = document.getElementById('companySelect').value;
+            if (company) {
+                fetch('/verify-domain?company=' + encodeURIComponent(company))
+                    .then(r => r.text())
+                    .then(domain => document.getElementById('emailDomainHint').textContent = 'USE YOUR ' + company.toUpperCase() + ' EMAIL (e.g., user' + domain + ')');
+            }
+        }
+    </script>
+</body>
+</html>

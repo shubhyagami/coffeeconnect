@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: ${RENDER_DATABASE_URL}
+    driver-class-name: org.postgresql.Driver
+    username: ${RENDER_DB_USERNAME:coffeeconnect}
+    password: ${RENDER_DB_PASSWORD:}
+  h2:
+    console:
+      enabled: false
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  thymeleaf:
+    cache: true
+
+server:
+  port: ${PORT:8080}
+
+app:
+  frontend-url: https://coffeeconnect.onrender.com

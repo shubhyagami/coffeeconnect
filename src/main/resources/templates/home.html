@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CoffeeConnect - Employee Networking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <nav class="navbar-brutal navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">☕ COFFEECONNECT</a>
+            <div class="ms-auto d-flex">
+                <a th:href="@{/login}" class="btn" style="background:transparent;color:#fff;border-color:#fff;margin-right:8px;">LOGIN</a>
+                <a th:href="@{/register}" class="btn" style="background:var(--accent2);color:var(--text);border-color:var(--accent2);">GET STARTED</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">CONNECT<br>OVER COFFEE</h1>
+            <p class="lead mb-5">Discover colleagues from your company. Build professional relationships.<br>Grow your network — one coffee at a time.</p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <span class="feature-icon">🔍</span>
+                            <h5 class="fw-bold">DISCOVER</h5>
+                            <p class="mb-0">Find colleagues from your company, department, or campus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <span class="feature-icon">☕</span>
+                            <h5 class="fw-bold">ASK FOR COFFEE</h5>
+                            <p class="mb-0">Send a coffee request and build meaningful connections.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card h-100">
+                        <div class="card-body text-center p-4">
+                            <span class="feature-icon">💬</span>
+                            <h5 class="fw-bold">CHAT & CALL</h5>
+                            <p class="mb-0">Message, voice call, or video call with your connections.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <a th:href="@{/register}" class="btn btn-warning btn-lg px-5 me-3" style="font-size:1rem;">JOIN NOW</a>
+                <a th:href="@{/login}" class="btn btn-lg px-5" style="background:transparent;color:#fff;border-color:#fff;font-size:1rem;">SIGN IN</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4">
+        <div class="container">
+            <p class="mb-0" style="font-size:0.75rem;">&copy; 2026 COFFEECONNECT — EMPLOYEE NETWORKING PLATFORM</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

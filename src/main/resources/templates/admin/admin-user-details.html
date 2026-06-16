@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Details - CoffeeConnect Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/admin-sidebar :: sidebar}"></div>
+    <div class="admin-content">
+        <div class="container-fluid p-4">
+            <h4 class="mb-4">User Details</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body text-center">
+                            <img th:src="${profile.profilePictureBase64} ?: (${profile.profilePictureUrl} ?: 'https://ui-avatars.com/api/?name=' + ${profile.firstName} + '+' + ${profile.lastName} + '&background=random')"
+                                 class="rounded-circle img-thumbnail mb-3" width="120" height="120">
+                            <h4 th:text="${profile.firstName} + ' ' + ${profile.lastName}"></h4>
+                            <p class="text-muted" th:text="${profile.email}"></p>
+                            <p><span class="badge" th:classappend="${profileUser.active} ? 'bg-success' : 'bg-danger'" th:text="${profileUser.active} ? 'Active' : 'Suspended'"></span>
+                            <span class="badge" th:classappend="${profile.verificationStatus == 'VERIFIED'} ? 'bg-success' : 'bg-warning'" th:text="${profile.verificationStatus}"></span></p>
+                            <hr>
+                            <div class="d-grid gap-2">
+                                <form th:if="${profileUser.active}" th:action="@{/admin/users/{id}/suspend(id=${profileUser.id})}" method="post">
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                                    <button class="btn btn-warning w-100 mb-2" onclick="return confirm('Suspend?')">Suspend User</button>
+                                </form>
+                                <form th:if="${!profileUser.active}" th:action="@{/admin/users/{id}/activate(id=${profileUser.id})}" method="post">
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                                    <button class="btn btn-success w-100 mb-2">Activate User</button>
+                                </form>
+                                <form th:action="@{/admin/users/{id}/delete(id=${profileUser.id})}" method="post" onsubmit="return confirm('Permanently delete this user?')">
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                                    <button class="btn btn-danger w-100 mb-2">Delete User</button>
+                                </form>
+                                <button class="btn btn-outline-primary w-100" data-bs-toggle="collapse" data-bs-target="#resetPwdForm">Reset Password</button>
+                            </div>
+                            <div class="collapse mt-3" id="resetPwdForm">
+                                <form th:action="@{/admin/users/{id}/reset-password(id=${profileUser.id})}" method="post">
+                                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                                    <input type="password" name="newPassword" class="form-control mb-2" placeholder="New password" required>
+                                    <button class="btn btn-primary w-100">Reset</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5>Profile Information</h5>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6 mb-2"><strong>Employee ID:</strong> <span th:text="${profile.employeeId}"></span></div>
+                                <div class="col-md-6 mb-2"><strong>Company:</strong> <span th:text="${profile.companyName}"></span></div>
+                                <div class="col-md-6 mb-2"><strong>Department:</strong> <span th:text="${profile.department}"></span></div>
+                                <div class="col-md-6 mb-2"><strong>Designation:</strong> <span th:text="${profile.designation}"></span></div>
+                                <div class="col-md-6 mb-2"><strong>City:</strong> <span th:text="${profile.city}"></span></div>
+                                <div class="col-md-6 mb-2"><strong>Campus:</strong> <span th:text="${profile.officeCampus}"></span></div>
+                                <div class="col-md-6 mb-2"><strong>Gender:</strong> <span th:text="${profile.gender}"></span></div>
+                                <div class="col-md-6 mb-2"><strong>DOB:</strong> <span th:text="${profile.dateOfBirth}"></span></div>
+                            </div>
+                            <hr>
+                            <p><strong>Bio:</strong> <span th:text="${profile.bio} ?: 'N/A'"></span></p>
+                            <p><strong>Interests:</strong> <span th:text="${profile.interests} ?: 'N/A'"></span></p>
+                            <p><strong>Sent Requests:</strong> <span th:text="${profile.sentRequestsCount}"></span></p>
+                            <p><strong>Received Requests:</strong> <span th:text="${profile.receivedRequestsCount}"></span></p>
+                            <p><strong>Connections:</strong> <span th:text="${profile.connectionsCount}"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

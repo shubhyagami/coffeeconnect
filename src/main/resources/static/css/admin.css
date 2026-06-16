@@ -1,0 +1,164 @@
+:root {
+  --bg: #f0ede8;
+  --bg-card: #ffffff;
+  --text: #1a1a1a;
+  --border: #1a1a1a;
+  --accent: #ff3b30;
+  --accent2: #ffcc00;
+  --accent3: #34c759;
+  --accent4: #007aff;
+  --shadow: 6px 6px 0px var(--border);
+  --shadow-sm: 3px 3px 0px var(--border);
+  --font: 'Courier New', 'Menlo', 'Consolas', monospace;
+  --font-heading: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+}
+
+.admin-sidebar {
+  width: 250px;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  background: var(--primary) !important;
+  border-right: 4px solid var(--accent2);
+}
+.admin-sidebar h5 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  padding: 16px 16px 8px;
+  border-bottom: 3px solid var(--accent);
+  margin-bottom: 10px;
+}
+.admin-sidebar h6 {
+  font-family: var(--font);
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: #aaa !important;
+  padding: 8px 16px 4px;
+  margin: 0;
+}
+.admin-sidebar hr {
+  border: none;
+  border-top: 2px solid #333;
+  margin: 8px 16px;
+  opacity: 1;
+}
+.admin-sidebar .nav-link {
+  padding: 10px 16px;
+  color: #fff !important;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-left: 3px solid transparent;
+  transition: none;
+}
+.admin-sidebar .nav-link:hover {
+  background: #333;
+  border-left-color: var(--accent2);
+  color: var(--accent2) !important;
+}
+.admin-sidebar .btn-outline-light {
+  border: 2px solid #fff;
+  border-radius: 0 !important;
+  font-family: var(--font);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  margin: 8px 16px;
+  width: calc(100% - 32px);
+  box-shadow: none;
+}
+.admin-sidebar .btn-outline-light:hover {
+  background: var(--accent2);
+  color: var(--text) !important;
+  border-color: var(--accent2);
+}
+
+.admin-content {
+  margin-left: 250px;
+  min-height: 100vh;
+  background: var(--bg);
+}
+.admin-content h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 4px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Dashboard stat cards */
+.admin-content .card.bg-primary,
+.admin-content .card.bg-success,
+.admin-content .card.bg-warning,
+.admin-content .card.bg-danger,
+.admin-content .card.bg-info,
+.admin-content .card.bg-secondary {
+  border: 3px solid var(--border) !important;
+  box-shadow: var(--shadow);
+  transition: none;
+}
+.admin-content .card.bg-primary { background: var(--accent4) !important; }
+.admin-content .card.bg-success { background: var(--accent3) !important; }
+.admin-content .card.bg-warning { background: var(--accent2) !important; color: var(--text) !important; }
+.admin-content .card.bg-danger { background: var(--accent) !important; }
+.admin-content .card.bg-info { background: #5ac8fa !important; }
+.admin-content .card.bg-secondary { background: #888 !important; }
+
+.admin-content .card.bg-warning h3,
+.admin-content .card.bg-warning h6 { color: var(--text) !important; }
+
+.admin-content .card:hover:not(.table *) {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px var(--border);
+}
+
+.admin-content .card-body h3 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  margin-bottom: 4px;
+}
+.admin-content .card-body h6 {
+  font-family: var(--font);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* Filters card */
+.admin-content .card.shadow-sm {
+  box-shadow: var(--shadow);
+}
+
+/* Audit logs table */
+.table.dark th {
+  background: var(--primary);
+}
+
+/* Canvas charts */
+canvas {
+  border: 3px solid var(--border);
+  padding: 8px;
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 100%;
+    min-height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 4px solid var(--accent2);
+  }
+  .admin-content {
+    margin-left: 0;
+  }
+}

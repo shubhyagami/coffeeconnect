@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<div th:fragment="sidebar" class="d-flex">
+    <div class="admin-sidebar">
+        <h5>☕ CoffeeConnect</h5>
+        <h6>ADMIN PANEL</h6>
+        <hr>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/dashboard}">📊 Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/users}">👥 Users</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/verifications}">✅ Verifications</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/companies}">🏢 Companies</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/offices}">📍 Offices</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/requests}">☕ Requests</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/connections}">🔗 Connections</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/reports}">🚨 Reports</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/settings}">⚙️ Settings</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/audit-logs}">📋 Audit Logs</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin/notifications}">📢 Notifications</a></li>
+        </ul>
+        <hr>
+        <a th:href="@{/dashboard}" class="btn btn-outline-light">← Back to App</a>
+    </div>
+</div>
+</body>
+</html>

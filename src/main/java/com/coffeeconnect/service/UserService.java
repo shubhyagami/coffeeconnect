@@ -68,7 +68,7 @@ public class UserService {
         user.setInterests(dto.getInterests());
         user.setVerificationStatus(VerificationStatus.PENDING);
         Role userRole = roleRepository.findByName("ROLE_USER")
-                .orElseThrow(() -> new RuntimeException("Default role not found"));
+                .orElseGet(() -> roleRepository.save(new Role(null, "ROLE_USER")));
         user.setRoles(new HashSet<>(Set.of(userRole)));
         if (dto.getCompanyName() != null) {
             companyRepository.findByCompanyName(dto.getCompanyName()).ifPresent(user::setCompany);

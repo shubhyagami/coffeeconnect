@@ -1,15 +1,12 @@
 services:
   - type: web
     name: coffeeconnect
-    runtime: java
-    buildCommand: mvn clean package -DskipTests
-    startCommand: java -Dserver.port=$PORT $JAVA_OPTS -jar target/coffeeconnect-1.0.0.jar
+    runtime: docker
+    dockerfilePath: Dockerfile
     healthCheckPath: /
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: render
-      - key: JAVA_OPTS
-        value: -Xmx256m -XX:+UseG1GC
       - key: RENDER_DATABASE_URL
         fromDatabase:
           name: coffeeconnect-db

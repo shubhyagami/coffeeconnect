@@ -7,10 +7,26 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: render
-      - key: RENDER_DATABASE_URL
+      - key: DB_HOST
         fromDatabase:
           name: coffeeconnect-db
-          property: connectionString
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: coffeeconnect-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: coffeeconnect-db
+          property: databaseName
+      - key: DB_USERNAME
+        fromDatabase:
+          name: coffeeconnect-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: coffeeconnect-db
+          property: password
 databases:
   - name: coffeeconnect-db
     plan: free

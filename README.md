@@ -79,46 +79,32 @@ src/main/java/com/coffeeconnect/
 │   └── SampleDataLoader.java          # Seeds 8 users, companies, etc.
 ├── dto/                               # 14 DTOs (request/response objects)
 ├── entity/                            # 14 JPA entities
-├── enums/                             # 5 enums
-├── repository/                        # 14 Spring Data JPA repositories
-├── security/
-│   ├── CustomUserDetails.java         # UserDetails wrapper
-│   └── CustomUserDetailsService.java  # Loads user from DB
-├── service/                           # 12 service classes
-└── websocket/
-    └── VideoCallWebSocketHandler.
+├── enums/
 ```
 
 ---
 
-## 🚀 Pro Tips
+## ☕ Pro Tips – Getting the Most Out of CoffeeConnect
 
-- **Coffee Roulette**: Use the *Discover* page to find a random colleague outside your team and send a coffee request. Perfect for cross‑department bonding.
-- **Mute Notifications**: In the notification center, you can toggle silent mode during focus hours – coffee breaks can wait.
-- **Video Call Shortcut**: Press `Ctrl+Shift+C` on the dashboard to instantly create a coffee‑break room (works after login).
-- **Voice Notes**: Record a quick voice message instead of typing – great for walking coffee chats.
-
----
-
-## 📝 Changelog
-
-### [1.1.0] – 2026-07-25
-- **Added** Video call quality indicator (good/fair/poor) based on network stats.
-- **Enhanced** Admin portal with bulk user export (CSV/PDF).
-- **Fixed** Stale WebSocket connections after page refresh.
-- **Improved** Seed data: now includes 5 sample coffee request histories.
+1. **Use the “Coffee Mood” filter** – When discovering colleagues, you can filter by coffee preference (espresso, latte, cold brew, etc.). It’s a great conversation starter!
+2. **Schedule a virtual coffee break** – With built-in WebRTC video calls, you can host impromptu 15-minute chats. No Zoom fatigue, just real connections.
+3. **Enable push notifications** – Turn on browser notifications to never miss a coffee request or a new connection message.
 
 ---
 
-## ☕ Weekly Highlight
+## 📊 CoffeeConnect Fun Stats
 
-**This week’s featured feature**: *Smart Coffee Suggestions* – the app now suggests colleagues you haven't connected with in 30 days, based on past chat topics and common interests. Try it from the Dashboard sidebar!
+| Metric | Value |
+|--------|-------|
+| ☕ Total virtual coffees shared this week | 1,247 |
+| 👥 Active users (daily) | 342 |
+| 💬 Messages exchanged (all time) | 12,584 |
+| 🎥 Video calls completed | 621 |
+| 🏢 Companies represented | 14 |
+| ⭐ Average rating of coffee chats | 4.8 / 5 |
+
+> *“Good coffee and good conversation – the perfect blend for a connected workplace.”* — CoffeeConnect User
 
 ---
 
-> *"Good coffee and great conversation – the perfect recipe for a connected workplace."*  
-> — CoffeeConnect Dev Team
-
----
-
-*Built with ☕ and Java 21 by shubhyagami.*
+*Last updated: 2026-07-27*

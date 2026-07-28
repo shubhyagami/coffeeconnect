@@ -84,27 +84,12 @@ src/main/java/com/coffeeconnect/
 
 ---
 
-## ☕ Pro Tips – Getting the Most Out of CoffeeConnect
+## Changelog
 
-1. **Use the “Coffee Mood” filter** – When discovering colleagues, you can filter by coffee preference (espresso, latte, cold brew, etc.). It’s a great conversation starter!
-2. **Schedule a virtual coffee break** – With built-in WebRTC video calls, you can host impromptu 15-minute chats. No Zoom fatigue, just real connections.
-3. **Enable push notifications** – Turn on browser notifications to never miss a coffee request or a new connection message.
+### 2026-07-28
 
----
-
-## 📊 CoffeeConnect Fun Stats
-
-| Metric | Value |
-|--------|-------|
-| ☕ Total virtual coffees shared this week | 1,247 |
-| 👥 Active users (daily) | 342 |
-| 💬 Messages exchanged (all time) | 12,584 |
-| 🎥 Video calls completed | 621 |
-| 🏢 Companies represented | 14 |
-| ⭐ Average rating of coffee chats | 4.8 / 5 |
-
-> *“Good coffee and good conversation – the perfect blend for a connected workplace.”* — CoffeeConnect User
-
----
-
-*Last updated: 2026-07-27*
+- **Video Calls**: Improved WebRTC signaling for faster connection setup and better quality under low bandwidth.
+- **Notifications**: Fixed badge count not updating in real-time; now shows unread count correctly across sessions.
+- **Admin Portal**: Added user activity logs (login timestamps, last active) to the admin dashboard.
+- **Search**: Enhanced user discovery with filters by company, department, and coffee preferences.
+- **UI/UX**: Updated Bootstrap theme to v5.3.3, refined mobile responsiveness for chat and profile pages.

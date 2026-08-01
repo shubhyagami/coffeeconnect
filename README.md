@@ -62,34 +62,44 @@ src/main/java/com/coffeeconnect/
 │   ├── WebSocketConfig.java           # STOMP messaging broker
 │   ├── VideoCallWebSocketConfig.java  # Raw WebSocket for WebRTC
 │   └── WebConfig.java                 # Static resource mapping
-├── controller/
-│   ├── HomeController.java            # Landing page
-│   ├── AuthController.java            # Login, register, verify-domain
-│   ├── DashboardController.java       # Post-login dashboard
-│   ├── ProfileController.java         # View/edit profile, change password
-│   ├── DiscoverController.java        # Search/filter users
-│   ├── CoffeeRequestController.java   # Send/accept/decline requests
-│   ├── ConnectionController.java      # Manage connections
-│   ├── MessageController.java         # Chat inbox, send messages
-│   ├── NotificationController.java    # Notification center
-│   ├── VideoCallController.java       # Video call rooms
-│   ├── MediaController.java           # File upload REST API
-│   └── AdminController.java           # Full admin CRUD
-├── data/
-│   └── SampleDataLoader.java          # Seeds 8 users, companies, etc.
-├── dto/                               # 14 DTOs (request/response objects)
-├── entity/                            # 14 JPA entities
-├── enums/
+├── contr
 ```
 
 ---
 
-## Changelog
+## 🕰️ Roadmap – Approved by the Time Variance Authority
 
-### 2026-07-28
+The Sacred Timeline of CoffeeConnect is ever-evolving. Below are the Nexus Events we plan to introduce – subject to pruning only if they create a branch that threatens the Multiverse of user experience.
 
-- **Video Calls**: Improved WebRTC signaling for faster connection setup and better quality under low bandwidth.
-- **Notifications**: Fixed badge count not updating in real-time; now shows unread count correctly across sessions.
-- **Admin Portal**: Added user activity logs (login timestamps, last active) to the admin dashboard.
-- **Search**: Enhanced user discovery with filters by company, department, and coffee preferences.
-- **UI/UX**: Updated Bootstrap theme to v5.3.3, refined mobile responsiveness for chat and profile pages.
+### ✅ Currently on the Sacred Timeline (v1.0 – v1.2)
+- [x] User registration & session-based authentication
+- [x] Profile management with coffee preferences
+- [x] Real‑time chat (STOMP + WebSocket)
+- [x] WebRTC video calls (peer-to-peer, signaling via raw WebSocket)
+- [x] Admin portal for user management
+- [x] Voice recording & media sharing
+- [x] H2 in‑memory DB for local dev, PostgreSQL for production
+
+### 🚧 Under Temporal Observation (v1.3 – v1.5)
+- [ ] **Coffee Blend Recommendations** – AI-powered suggestions based on chat history and mood tags
+- [ ] **Group Video Rooms** – Multi‑participant WebRTC (Mesh/SFU architecture)
+- [ ] **Event Calendar** – Schedule coffee meetups with push reminders (FCM)
+- [ ] **Reactions & GIFs** – Inline message reactions with GIPHY integration
+- [ ] **Dark Mode** – Because even the TVA needs a restful UI
+
+### 🔮 Future Timeline Branches (v2.0+)
+- [ ] **Mobile App** (Flutter / Kotlin Multiplatform) – Coffee on the go
+- [ ] **Integration with Slack / Teams** – Cross‑platform coffee invitations
+- [ ] **Gamification** – “Coffee Streaks”, badges, and leaderboards
+- [ ] **Anonymous Feedback** – Rate your coffee chat experience (encrypted)
+- [ ] **TVA‑style UI Overhaul** – Retro‑futuristic theme with CRT scanlines and timeline clocks
+
+### ⚠️ Pruned Variants (Won’t Implement)
+- ❌ **Cryptocurrency coffee payments** – Too volatile for the Sacred Timeline
+- ❌ **Time‑travel debugging** – We leave that to the Minutemen
+
+---
+
+**Want to suggest a new feature?** File an issue on our repository – every variant timeline is welcome for review by the Time-Keepers (aka the maintainers).
+
+*“For all time. Always.”*

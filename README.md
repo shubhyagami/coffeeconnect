@@ -1,8 +1,18 @@
 # CoffeeConnect
 
-![Java 21](https://img.shields.io/badge/Java-21-blue) ![Spring Boot 3.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green) ![Thymeleaf](https://img.shields.io/badge/Templates-Thymeleaf%20%2B%20Bootstrap%205-orange) ![WebRTC](https://img.shields.io/badge/Video-WebRTC-lightblue) ![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-blue)
+```text
+      ((((
+      ((((      ____                 _                     ___                   _   
+      ((((     / ___| ___   ___   __| |  ___  __ _ _ __ __| / __| ___   ___ _ __ | |_ 
+      ((((    | |    / _ \ / _ \ / _` | / __|/ _` | '__/ _` \__ \/ -_) / _ \ '  \|  _|
+      ((((    | |___ | (_) | (_) | (_| | \__ \ (_| | | | (_| |___/\__ \| (_) | |_) | | 
+      ((((     \____|\___/ \___/ \__,_| |___/\__,_|_|  \__,_|   |___(_)___/| .__/ \__|
+    (((((((((((((                                                        |_|     
+```
 
-**Employee Coffee Connection Platform** — a Spring Boot application that helps colleagues discover, connect, and chat over coffee. Features video calls, real-time messaging, voice recording, media sharing, and a full admin portal.
+![Java 21](https://img.shields.io/badge/Java-21-blue) ![Spring Boot 3.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green) ![Thymeleaf](https://img.shields.io/badge/Templates-Thymeleaf%20%2B%20Bootstrap%205-orange) ![WebRTC](https://img.shields.io/badge/Video-WebRTC-lightblue) ![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-blue) ![Served Hot](https://img.shields.io/badge/Coffee-Served%20Hot-brown)
+
+**Employee Coffee Connection Platform** — a Spring Boot application that helps colleagues discover, connect, and chat over coffee. It features video calls, real-time messaging, voice recording, media sharing, and a full admin portal.
 
 ---
 
@@ -67,6 +77,25 @@ src/main/java/com/coffeeconnect/
 
 ---
 
+## 📜 Weekly Highlight - The "Watercooler" Evolution
+
+In traditional office spaces, the watercooler or the coffee machine was the nexus of cross-team collaboration. **CoffeeConnect** digitizes this exact experience for the hybrid-work era. 
+
+Instead of forcing awkward standalone meeting links, CoffeeConnect recreates the organic "walk-up-to-the-machine" vibe:
+1. **State Transparency:** See who is currently on a "Coffee Break" in real-time via WebSocket status feeds.
+2. **Spontaneous Pairing:** Join an open WebRTC video booth with a colleague who shares your exact coffee preferences (e.g., *Oat Milk Flat White* drinkers unite!).
+3. **Zero Commitment:** No calendar invites, no 30-minute mandatory blocks—just a 5-minute mental reset to boost psychological safety across organizational silos.
+
+---
+
+## 💡 Pro Tips for Baristas (Developers & Admins)
+
+- **Hot Reload Magic:** If you are running the app locally via `mvn spring-boot:run`, ensure you have `spring-boot-devtools` active in your `pom.xml` for instant Thymeleaf template changes without restarting the server.
+- **Debugging WebRTC Signaling:** If video calls fail to establish PeerConnections, check your local browser's network tab for the raw WebSocket upgrade response. Ensure your `VideoCallWebSocketConfig` isn't being overridden by Spring Security's default CSRF protection on WebSockets.
+- **H2 Console Access:** During local development, you can access the H2 in-memory database console at `/h2-console` using the JDBC URL `jdbc:h2:mem:coffeeconnect` to quickly inspect users and chat messages.
+
+---
+
 ## 🕰️ Roadmap – Approved by the Time Variance Authority
 
 The Sacred Timeline of CoffeeConnect is ever-evolving. Below are the Nexus Events we plan to introduce – subject to pruning only if they create a branch that threatens the Multiverse of user experience.
@@ -84,22 +113,18 @@ The Sacred Timeline of CoffeeConnect is ever-evolving. Below are the Nexus Event
 - [ ] **Coffee Blend Recommendations** – AI-powered suggestions based on chat history and mood tags
 - [ ] **Group Video Rooms** – Multi‑participant WebRTC (Mesh/SFU architecture)
 - [ ] **Event Calendar** – Schedule coffee meetups with push reminders (FCM)
-- [ ] **Reactions & GIFs** – Inline message reactions with GIPHY integration
-- [ ] **Dark Mode** – Because even the TVA needs a restful UI
-
-### 🔮 Future Timeline Branches (v2.0+)
-- [ ] **Mobile App** (Flutter / Kotlin Multiplatform) – Coffee on the go
-- [ ] **Integration with Slack / Teams** – Cross‑platform coffee invitations
-- [ ] **Gamification** – “Coffee Streaks”, badges, and leaderboards
-- [ ] **Anonymous Feedback** – Rate your coffee chat experience (encrypted)
-- [ ] **TVA‑style UI Overhaul** – Retro‑futuristic theme with CRT scanlines and timeline clocks
-
-### ⚠️ Pruned Variants (Won’t Implement)
-- ❌ **Cryptocurrency coffee payments** – Too volatile for the Sacred Timeline
-- ❌ **Time‑travel debugging** – We leave that to the Minutemen
+- [ ] **Reactions & Brewing Status** – Custom emojis and presence indicators tailored for micro-breaks
 
 ---
 
-**Want to suggest a new feature?** File an issue on our repository – every variant timeline is welcome for review by the Time-Keepers (aka the maintainers).
+## ☕ Changelog
 
-*“For all time. Always.”*
+### 2026-08-03
+- **Docs:** Refreshed Sacred Timeline alignment protocols in README.
+- **Docs:** Added the *Weekly Highlight* section to redefine remote social interactions.
+- **Docs:** Added *Pro Tips* for rapid onboarding and WebRTC debugging.
+
+---
+
+> *"A cup of coffee shared with a friend is happiness tasted and time well spent."*
+> Drink deeply from the cup of collaboration, for the codebase that breaks bread (or beans) together, stays together.

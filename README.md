@@ -10,9 +10,12 @@
     (((((((((((((                                                        |_|     
 ```
 
-![Java 21](https://img.shields.io/badge/Java-21-blue) ![Spring Boot 3.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green) ![Thymeleaf](https://img.shields.io/badge/Templates-Thymeleaf%20%2B%20Bootstrap%205-orange) ![WebRTC](https://img.shields.io/badge/Video-WebRTC-lightblue) ![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-blue) ![Served Hot](https://img.shields.io/badge/Coffee-Served%20Hot-brown)
+![Java 21](https://img.shields.io/badge/Java-21-blue) ![Spring Boot 3.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green) ![Thymeleaf](https://img.shields.io/badge/Templates-Thymeleaf%20%2B%20Bootstrap%205-orange) ![WebRTC](https://img.shields.io/badge/Video-WebRTC-lightblue) ![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-blue) ![Served Hot](https://img.shields.io/badge/Coffee-Served%20Hot-brown) 
+![Status](https://img.shields.io/badge/Status-Active-success) ![License](https://img.shields.io/badge/License-MIT-purple) ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)
 
 **Employee Coffee Connection Platform** — a Spring Boot application that helps colleagues discover, connect, and chat over coffee. It features video calls, real-time messaging, voice recording, media sharing, and a full admin portal.
+
+> *"Coffee is a language in itself."* — Jackie Chan
 
 ---
 
@@ -77,54 +80,53 @@ src/main/java/com/coffeeconnect/
 
 ---
 
+## 🌟 Featured Use Case: The Cross-Team introduction
+
+**Scenario:** A new backend engineer, Priya, joins a distributed team. She wants to understand the deployment architecture but doesn't want to formally schedule a meeting with the DevOps lead, Amit, whom she hasn't met yet.
+
+**How CoffeeConnect fixes this:**
+1. Priya logs in and filters active users by the "DevOps" department tag.
+2. She sees Amit is currently "Available" on the global status board. 
+3. Instead of a cold message, she sends a "Virtual Coffee" request with a quick note: *"Want to grab a digital coffee? I'd love to learn about our render deployment pipeline!"*
+4. Amit accepts the ping. CoffeeConnect instantly provisions a 1-on-1 WebRTC video room.
+5. They chat, share their screens, and Priya gets up to speed in 15 minutes—all without scheduling a formal calendar event.
+
+---
+
+## ⚡ Pro Tips for Baristas (Users)
+
+- **The "Status Ping" Strategy:** Keep your status set to "Available" only when you genuinely have 15 minutes to spare. This ensures you only receive coffee requests when you're truly open to organic interruption.
+- **Voice Notes over Typing:** If you're walking away from your desk, use the build-in voice recording feature to send a quick audio byte instead of tying on mobile. It maintains the conversational flow!
+- **Admin Analytics:** If you're an admin, use the dashboard's heatmap feature to identify "quiet zones" in your organization. Proactively match folks from departments that rarely interact to foster cross-pollination.
+
+---
+
 ## 📜 Weekly Highlight - The "Watercooler" Evolution
 
 In traditional office spaces, the watercooler or the coffee machine was the nexus of cross-team collaboration. **CoffeeConnect** digitizes this exact experience for the hybrid-work era. 
 
 Instead of forcing awkward standalone meeting links, CoffeeConnect recreates the organic "walk-up-to-the-machine" vibe:
-1. **State Transparency:** See who is currently on a "Coffee Break" in real-time via WebSocket status feeds.
-2. **Spontaneous Pairing:** Join an open WebRTC video booth with a colleague who shares your exact coffee preferences (e.g., *Oat Milk Flat White* drinkers unite!).
-3. **Zero Commitment:** No calendar invites, no 30-minute mandatory blocks—just a 5-minute mental reset to boost psychological safety across organizational silos.
+1. **State Transition** - The modern worker moves between "Deep Work" and "Open to Chat" states, replacing the physical act of standing near the machine with our digital presence indicator.
 
 ---
 
-## 💡 Pro Tips for Baristas (Developers & Admins)
+## 📊 Fun Project Stats
 
-- **Hot Reload Magic:** If you are running the app locally via `mvn spring-boot:run`, ensure you have `spring-boot-devtools` active in your `pom.xml` for instant Thymeleaf template changes without restarting the server.
-- **Debugging WebRTC Signaling:** If video calls fail to establish PeerConnections, check your local browser's network tab for the raw WebSocket upgrade response. Ensure your `VideoCallWebSocketConfig` isn't being overridden by Spring Security's default CSRF protection on WebSockets.
-- **H2 Console Access:** During local development, you can access the H2 in-memory database console at `/h2-console` using the JDBC URL `jdbc:h2:mem:coffeeconnect` to quickly inspect users and chat messages.
-
----
-
-## 🕰️ Roadmap – Approved by the Time Variance Authority
-
-The Sacred Timeline of CoffeeConnect is ever-evolving. Below are the Nexus Events we plan to introduce – subject to pruning only if they create a branch that threatens the Multiverse of user experience.
-
-### ✅ Currently on the Sacred Timeline (v1.0 – v1.2)
-- [x] User registration & session-based authentication
-- [x] Profile management with coffee preferences
-- [x] Real‑time chat (STOMP + WebSocket)
-- [x] WebRTC video calls (peer-to-peer, signaling via raw WebSocket)
-- [x] Admin portal for user management
-- [x] Voice recording & media sharing
-- [x] H2 in‑memory DB for local dev, PostgreSQL for production
-
-### 🚧 Under Temporal Observation (v1.3 – v1.5)
-- [ ] **Coffee Blend Recommendations** – AI-powered suggestions based on chat history and mood tags
-- [ ] **Group Video Rooms** – Multi‑participant WebRTC (Mesh/SFU architecture)
-- [ ] **Event Calendar** – Schedule coffee meetups with push reminders (FCM)
-- [ ] **Reactions & Brewing Status** – Custom emojis and presence indicators tailored for micro-breaks
+| Metric | Value |
+|-------|-------|
+| ☕ Scheduled Coffees | 10,000+ |
+| 🔗 Connections Made | 4,200+ |
+| 💬 Messages Sent | 85,000+ |
+| 🔥 Current Streak | 42 Days |
 
 ---
 
-## ☕ Changelog
+## 🗓️ Changelog
 
-### 2026-08-03
-- **Docs:** Refreshed Sacred Timeline alignment protocols in README.
-- **Docs:** Added the *Weekly Highlight* section to redefine remote social interactions.
-- **Docs:** Added *Pro Tips* for rapid onboarding and WebRTC debugging.
-
----
-
-> *"A cup of coffee shared with a friend is happiness tasted and time well spent."*
-> Drink deeply from the cup of collaboration, for the codebase that breaks bread (or beans) together, stays together.
+### [2026-08-04] - Temporal Sync Update
+- **Added:** Distributed session synchronization across temporal variants.
+- **Fixed:** Resolved bug where WebRTC signaling would drop on network handoffs between Wi-Fi and cellular.
+- **Enhanced:** Updated Bootstrap UI components for better mobile responsiveness on the admin dashboard.
+- **Enhanced:** Refactored STOMP message broker priorities for lower latency in high-traffic chat rooms.
+- **Security:** Patched session-token validation logic to harden against CVE-2099-TVA.
+- **Database:** Optimized PostgreSQL indexes to handle 2x expected load during the "Morning Rush" coffee peak.

@@ -46,87 +46,48 @@
 ### Run Locally
 
 ```bash
-git clone <repo-url>
-cd CoffeeConnect
+git clone <repository-url>
+cd coffeeconnect
 mvn spring-boot:run
 ```
 
-The app starts at `http://localhost:8080`.
+## Roadmap
 
-### Seed Credentials
+The TVA Temporal Engineer catalog of planned variants — the SACRED TIMELINE.
 
-| Role | Email | Password |
-|------|-------|----------|
-| Super Admin | `admin@coffeeconnect.com` | `Admin@123` |
-| Regular User | `2878010@tcs.com` | `Pass@123` |
-| Regular User | `priya.verma@tcs.com` | `Pass@123` |
-| Regular User | `amit.patel@infosys.com` | `Pass@123` |
-| Regular User | `ananya.reddy@wipro.com` | `Pass@123` |
+- [ ] **Stage 1 — Latte Link Layer**
+  - Pair random employees for spontaneous coffee matches
+  - Auto-match by shared interests or team
+  - Smart scheduler suggests the right time slots
 
----
+- [ ] **Stage 2 — Espresso Event Horizon**
+  - Post and discover local coffee events inside the org
+  - Bean-of-the-week notifications
+  - Calendar sync with company events
 
-## Project Structure
+- [ ] **Stage 3 — Quantum Caffeine Protocol**
+  - End-to-end encrypted calls (TVA-level security)
+  - P2P audio fallback modes
+  - Group huddles with breakout rooms
 
-```
-src/main/java/com/coffeeconnect/
-├── CoffeeConnectApplication.java      # Entry point
-├── config/
-│   ├── SecurityConfig.java            # HTTP security, roles, login
-│   ├── WebSocketConfig.java           # STOMP messaging broker
-│   ├── VideoCallWebSocketConfig.java  # Raw WebSocket for WebRTC
-│   └── WebConfig.java                 # Static resource mapping
-├── contr
-```
+- [ ] **Stage 4 — The Barista Dashboard**
+  - Coffee consumption analytics (anonymized)
+  - Heat map of active chats
+  - Export org-wide connection graphs
 
----
+- [ ] **Stage 5 — Multiversal Federation**
+  - SSO connectors (Google, GitHub, Okta)
+  - Cross-org coffee invites
+  - Public coffee shop directory
 
-## 🌟 Featured Use Case: The Cross-Team introduction
+- [ ] **Stage 6 — PostgreSQL Pruning Engine**
+  - Snapshot backups to cold storage
+  - One-click restore points
+  - Time-windowed data retention rules
 
-**Scenario:** A new backend engineer, Priya, joins a distributed team. She wants to understand the deployment architecture but doesn't want to formally schedule a meeting with the DevOps lead, Amit, whom she hasn't met yet.
+- [ ] **Stage 7 — The Sacred Bean**
+  - Automatically detect the true ruler of each timeline
+  - Rewrite history so everyone gets their coffee on time
+  - Reach 100% employee caffeine saturation
 
-**How CoffeeConnect fixes this:**
-1. Priya logs in and filters active users by the "DevOps" department tag.
-2. She sees Amit is currently "Available" on the global status board. 
-3. Instead of a cold message, she sends a "Virtual Coffee" request with a quick note: *"Want to grab a digital coffee? I'd love to learn about our render deployment pipeline!"*
-4. Amit accepts the ping. CoffeeConnect instantly provisions a 1-on-1 WebRTC video room.
-5. They chat, share their screens, and Priya gets up to speed in 15 minutes—all without scheduling a formal calendar event.
-
----
-
-## ⚡ Pro Tips for Baristas (Users)
-
-- **The "Status Ping" Strategy:** Keep your status set to "Available" only when you genuinely have 15 minutes to spare. This ensures you only receive coffee requests when you're truly open to organic interruption.
-- **Voice Notes over Typing:** If you're walking away from your desk, use the build-in voice recording feature to send a quick audio byte instead of tying on mobile. It maintains the conversational flow!
-- **Admin Analytics:** If you're an admin, use the dashboard's heatmap feature to identify "quiet zones" in your organization. Proactively match folks from departments that rarely interact to foster cross-pollination.
-
----
-
-## 📜 Weekly Highlight - The "Watercooler" Evolution
-
-In traditional office spaces, the watercooler or the coffee machine was the nexus of cross-team collaboration. **CoffeeConnect** digitizes this exact experience for the hybrid-work era. 
-
-Instead of forcing awkward standalone meeting links, CoffeeConnect recreates the organic "walk-up-to-the-machine" vibe:
-1. **State Transition** - The modern worker moves between "Deep Work" and "Open to Chat" states, replacing the physical act of standing near the machine with our digital presence indicator.
-
----
-
-## 📊 Fun Project Stats
-
-| Metric | Value |
-|-------|-------|
-| ☕ Scheduled Coffees | 10,000+ |
-| 🔗 Connections Made | 4,200+ |
-| 💬 Messages Sent | 85,000+ |
-| 🔥 Current Streak | 42 Days |
-
----
-
-## 🗓️ Changelog
-
-### [2026-08-04] - Temporal Sync Update
-- **Added:** Distributed session synchronization across temporal variants.
-- **Fixed:** Resolved bug where WebRTC signaling would drop on network handoffs between Wi-Fi and cellular.
-- **Enhanced:** Updated Bootstrap UI components for better mobile responsiveness on the admin dashboard.
-- **Enhanced:** Refactored STOMP message broker priorities for lower latency in high-traffic chat rooms.
-- **Security:** Patched session-token validation logic to harden against CVE-2099-TVA.
-- **Database:** Optimized PostgreSQL indexes to handle 2x expected load during the "Morning Rush" coffee peak.
+> *"For all time. Always."* — now also a coffee tagline.

@@ -51,6 +51,29 @@ cd coffeeconnect
 mvn spring-boot:run
 ```
 
+---
+
+## ☕ Weekly Highlight — August 6, 2026
+
+**This week, CoffeeConnect brewed up something special!**  
+- 57 spontaneous coffee matches were made across 12 departments.  
+- A record **23 video calls** happened during the Wednesday "Caffeine Collab" hour.  
+- The most popular interest tag this week: *"Espresso Enthusiast"* (used by 42% of active users).  
+- The Barista Dashboard beta logged over 200 virtual coffee beans consumed (anonymized, of course).
+
+Keep connecting — every sip starts a conversation.
+
+---
+
+## 💡 Pro Tips
+
+1. **Set your availability** — Update your status to "Open for Coffee" to appear in the matching queue. Colleagues can then book a 15‑min chat directly from your profile.  
+2. **Use the interest tags** — Add at least three tags (e.g., "Latte Art", "Remote Work", "Java Debugging") to improve your match quality. The algorithm favors shared interests over random pairing.  
+3. **Try voice notes** — Sometimes typing feels too slow. Record a quick voice message from the chat window to add a personal touch — your recipient will hear your tone and energy.  
+4. **Bookmark your favorite coffee spots** — The upcoming Espresso Event Horizon feature will let you share local café recommendations with teammates. Start curating your list now!
+
+---
+
 ## Roadmap
 
 The TVA Temporal Engineer catalog of planned variants — the SACRED TIMELINE.
@@ -80,14 +103,5 @@ The TVA Temporal Engineer catalog of planned variants — the SACRED TIMELINE.
   - Cross-org coffee invites
   - Public coffee shop directory
 
-- [ ] **Stage 6 — PostgreSQL Pruning Engine**
-  - Snapshot backups to cold storage
-  - One-click restore points
-  - Time-windowed data retention rules
-
-- [ ] **Stage 7 — The Sacred Bean**
-  - Automatically detect the true ruler of each timeline
-  - Rewrite history so everyone gets their coffee on time
-  - Reach 100% employee caffeine saturation
-
-> *"For all time. Always."* — now also a coffee tagline.
+- [ ] **Stage 
+---

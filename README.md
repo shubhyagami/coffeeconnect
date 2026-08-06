@@ -17,7 +17,15 @@
 
 > *"Coffee is a language in itself."* — Jackie Chan
 
-> *"For all time. Always brewing."* — TVA Temporal Engineer
+---
+
+## Features
+
+- **Spontaneous Matching:** Pair randomly with colleagues for a quick 15-minute coffee chat.
+- **Interest Tags:** Improve match quality by adding shared interests like "Latte Art" or "Java Debugging."
+- **Rich Messaging:** Real-time chat powered by WebSockets, including voice notes and media sharing.
+- **Video Calls:** Peer-to-peer WebRTC video calls with low-latency signaling.
+- **Admin Portal:** A full dashboard to manage users, monitor activity, and track anonymized connection metrics.
 
 ---
 
@@ -38,7 +46,7 @@
 
 ---
 
-## Quick Start
+## Getting Started
 
 ### Prerequisites
 
@@ -48,65 +56,45 @@
 ### Run Locally
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/shubhyagami/coffeeconnect.git
 cd coffeeconnect
 mvn spring-boot:run
 ```
 
----
-
-## ☕ Weekly Highlight — August 6, 2026
-
-**This week, CoffeeConnect brewed up something special!**  
-- 57 spontaneous coffee matches were made across 12 departments.  
-- A record **23 video calls** happened during the Wednesday "Caffeine Collab" hour.  
-- The most popular interest tag this week: *"Espresso Enthusiast"* (used by 42% of active users).  
-- The Barista Dashboard beta logged over 200 virtual coffee beans consumed (anonymized, of course).
-
-Keep connecting — every sip starts a conversation.
+The application will start on `http://localhost:8080`. It is configured to use an H2 in-memory database by default for local development, so no external database setup is required.
 
 ---
 
-## 💡 Pro Tips
+## User Tips
 
-1. **Set your availability** — Update your status to "Open for Coffee" to appear in the matching queue. Colleagues can then book a 15‑min chat directly from your profile.  
-2. **Use the interest tags** — Add at least three tags (e.g., "Latte Art", "Remote Work", "Java Debugging") to improve your match quality. The algorithm favors shared interests over random pairing.  
-3. **Try voice notes** — Sometimes typing feels too slow. Record a quick voice message from the chat window to add a personal touch — your recipient will hear your tone and energy.  
-4. **Bookmark your favorite coffee spots** — The upcoming Espresso Event Horizon feature will let you share local café recommendations with teammates. Start curating your list now!
-
----
-
-## 🛰️ TVA Temporal Changelog — August 7, 2026
-
-**Branch Pruned:** Resolved a minor temporal anomaly in the WebSocket signaling layer that occasionally delayed coffee match notifications by a few milliseconds. The Sacred Timeline of spontaneous pairing is now perfectly stable. No nexus events detected.
+1. **Set your availability:** Update your status to "Open for Coffee" to appear in the matching queue. Colleagues can then book a chat directly from your profile.
+2. **Use interest tags:** Add at least three tags to improve match quality. The algorithm favors shared interests over random pairing.
+3. **Try voice notes:** Record a quick voice message from the chat window to add a personal touch.
 
 ---
 
 ## Roadmap
 
-The TVA Temporal Engineer catalog of planned variants — the SACRED TIMELINE.
+- [ ] **Local Coffee Events**
+  - Post and discover local coffee events inside the org.
+  - Bean-of-the-week notifications.
+  - Calendar sync with company events.
+- [ ] **Advanced Call Features**
+  - End-to-end encrypted calls.
+  - P2P audio fallback modes.
+  - Group huddles with breakout rooms.
+- [ ] **Connection Analytics**
+  - Anonymized coffee consumption analytics.
+  - Heat map of active chats.
+  - Export org-wide connection graphs.
+- [ ] **SSO & Federation**
+  - SSO connectors (Google, GitHub, Okta).
+  - Cross-org coffee invites.
+  - Public coffee shop directory.
 
-- [ ] **Stage 1 — Latte Link Layer**
-  - Pair random employees for spontaneous coffee matches
-  - Auto-match by shared interests or team
-  - Smart scheduler suggests the right time slots
+---
 
-- [ ] **Stage 2 — Espresso Event Horizon**
-  - Post and discover local coffee events inside the org
-  - Bean-of-the-week notifications
-  - Calendar sync with company events
+## Changelog
 
-- [ ] **Stage 3 — Quantum Caffeine Protocol**
-  - End-to-end encrypted calls (TVA-level security)
-  - P2P audio fallback modes
-  - Group huddles with breakout rooms
-
-- [ ] **Stage 4 — The Barista Dashboard**
-  - Coffee consumption analytics (anonymized)
-  - Heat map of active chats
-  - Export org-wide connection graphs
-
-- [ ] **Stage 5 — Multiversal Federation**
-  - SSO connectors (Google, GitHub, Okta)
-  - Cross-org coffee invites
-  - Public coffee shop directory
+### August 7, 2026
+- Resolved a minor timing anomaly in the WebSocket signaling layer that occasionally delayed coffee match notifications. Pairing notifications are now delivered instantly.

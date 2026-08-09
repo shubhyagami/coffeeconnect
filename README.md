@@ -11,11 +11,8 @@
 ```
 
 ![Java 21](https://img.shields.io/badge/Java-21-blue)
-![Spring Boot 3.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green)
-![Thymeleaf](https://img.shields.io/badge/Templates-Thymeleaf%20%2B%20Bootstrap%205-orange)
-![WebRTC](https://img.shields.io/badge/Video-WebRTC-lightblue)
+![Spring Boot 3.4.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green)
 ![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-blue)
-![Status](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-purple)
 ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)
 
@@ -97,6 +94,9 @@ The application is configured to use an H2 in-memory database by default for loc
 
 ### August 7, 2026
 - Resolved a minor timing anomaly in the WebSocket signaling layer that occasionally delayed coffee match notifications. Pairing notifications are now delivered instantly.
+
+### August 10, 2026
+- Updated README formatting and cleaned up documentation sections for clarity.
 
 ## License
 

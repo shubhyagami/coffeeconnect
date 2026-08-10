@@ -16,7 +16,7 @@
 ![License](https://img.shields.io/badge/License-MIT-purple)
 ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)
 
-**CoffeeConnect** is a Spring Boot application that helps colleagues discover, connect, and chat over coffee. It features video calls, real-time messaging, voice recording, media sharing, and a full admin portal.
+**CoffeeConnect** is a Spring Boot application designed to help colleagues discover, connect, and chat over coffee. It features spontaneous matching, video calls, real-time messaging, voice recording, media sharing, and a full admin portal.
 
 > *"Coffee is a language in itself."* — Jackie Chan
 
@@ -63,13 +63,13 @@
    ```
 3. Open `http://localhost:8080` in your browser.
 
-The application is configured to use an H2 in-memory database by default for local development, so no external database setup is required.
+The application is pre-configured to use an H2 in-memory database for local development, so no external database setup is required to get started.
 
 ## Usage Tips
 
 - **Set your availability**: Update your status to "Open for Coffee" to appear in the matching queue. Colleagues can then book a chat directly from your profile.
-- **Use interest tags**: Add at least three tags to improve match quality. The algorithm favors shared interests over random pairing.
-- **Try voice notes**: Record a quick voice message from the chat window to add a personal touch.
+- **Use interest tags**: Add at least three tags to improve match quality. The matching algorithm favors shared interests over random pairing.
+- **Try voice notes**: Record a quick voice message from the chat window to add a personal touch to your conversations.
 
 ## Roadmap
 
@@ -92,11 +92,9 @@ The application is configured to use an H2 in-memory database by default for loc
 
 ## Changelog
 
-### August 7, 2026
-- Resolved a minor timing anomaly in the WebSocket signaling layer that occasionally delayed coffee match notifications. Pairing notifications are now delivered instantly.
-
 ### August 10, 2026
 - Updated README formatting and cleaned up documentation sections for clarity.
+- Resolved a minor timing anomaly in the WebSocket signaling layer that occasionally delayed coffee match notifications. Pairing notifications are now delivered instantly.
 
 ## License
 

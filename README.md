@@ -16,7 +16,7 @@
 ![License](https://img.shields.io/badge/License-MIT-purple)
 ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)
 
-**CoffeeConnect** is a Spring Boot application designed to help colleagues discover, connect, and chat over coffee. It features spontaneous matching, video calls, real-time messaging, voice recording, media sharing, and a full admin portal.
+**CoffeeConnect** is a Spring Boot application that helps colleagues discover, connect, and chat over coffee. It features spontaneous matching, video calls, real-time messaging, voice recording, media sharing, and a full admin portal.
 
 > *"Coffee is a language in itself."* — Jackie Chan
 
@@ -92,10 +92,13 @@ The application is pre-configured to use an H2 in-memory database for local deve
 
 ## Changelog
 
+### August 11, 2026
+- Standardized README structure and formatting for better readability.
+- Updated environment and tech stack documentation.
+
 ### August 10, 2026
-- Updated README formatting and cleaned up documentation sections for clarity.
 - Resolved a minor timing anomaly in the WebSocket signaling layer that occasionally delayed coffee match notifications. Pairing notifications are now delivered instantly.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the `LICENSE` file for details.

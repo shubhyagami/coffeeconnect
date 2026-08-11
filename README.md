@@ -63,7 +63,7 @@
    ```
 3. Open `http://localhost:8080` in your browser.
 
-The application is pre-configured to use an H2 in-memory database for local development, so no external database setup is required to get started.
+The application is pre-configured to use an H2 in-memory database for local development, so no external database setup is required to get started. By default, the app runs on port `8080`. You can override this and other settings via standard Spring Boot properties (e.g., `server.port` or `SPRING_DATASOURCE_URL`).
 
 ## Usage Tips
 
@@ -91,6 +91,10 @@ The application is pre-configured to use an H2 in-memory database for local deve
   - Public coffee shop directory.
 
 ## Changelog
+
+### August 12, 2026
+- Polished README structure and formatting for better readability.
+- Clarified local development setup and environment configuration.
 
 ### August 11, 2026
 - Standardized README structure and formatting for better readability.

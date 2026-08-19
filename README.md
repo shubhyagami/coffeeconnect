@@ -65,7 +65,7 @@
 
 The application is pre-configured to use an H2 in-memory database for local development, so no external database setup is required to get started. By default, the app runs on port `8080`. You can override this and other settings via standard Spring Boot properties (e.g., `server.port` or `SPRING_DATASOURCE_URL`).
 
-## Usage Tips
+### Usage Tips
 
 - **Set your availability**: Update your status to "Open for Coffee" to appear in the matching queue. Colleagues can then book a chat directly from your profile.
 - **Use interest tags**: Add at least three tags to improve match quality. The matching algorithm favors shared interests over random pairing.
@@ -91,6 +91,10 @@ The application is pre-configured to use an H2 in-memory database for local deve
   - Public coffee shop directory.
 
 ## Changelog
+
+### August 19, 2026
+- Cleaned up README structure and formatting for better readability.
+- Refined Getting Started section and environment configuration details.
 
 ### August 12, 2026
 - Polished README structure and formatting for better readability.

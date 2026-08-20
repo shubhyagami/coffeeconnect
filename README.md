@@ -24,7 +24,7 @@
 
 - **Spontaneous Matching**: Get paired randomly with colleagues for a quick 15-minute coffee chat.
 - **Interest Tags**: Improve match quality by adding shared interests like "Latte Art" or "Java Debugging."
-- **Rich Messaging**: Real-time chat powered by WebSickets, including voice notes and media sharing.
+- **Rich Messaging**: Real-time chat powered by WebSockets, including voice notes and media sharing.
 - **Video Calls**: Peer-to-peer WebRTC video calls with low-latency signaling.
 - **Admin Portal**: A comprehensive dashboard to manage users, monitor activity, and track anonymized connection metrics.
 
@@ -95,18 +95,6 @@ The application is pre-configured to use an H2 in-memory database for local deve
 ### August 20, 2026
 - Cleaned up README structure and formatting for better readability.
 - Refined Getting Started section and environment configuration details.
-
-### August 19, 2026
-- Cleaned up README structure and formatting for better readability.
-- Refined Getting Started section and environment configuration details.
-
-### August 12, 2026
-- Polished README structure and formatting for better readability.
-- Clarified local development setup and environment configuration.
-
-### August 11, 2026
-- Standardized README structure and formatting for better readability.
-- Updated environment and tech stack documentation.
 
 ### August 10, 2026
 - Resolved a minor timing anomaly in the WebSocket signaling layer that occasionally delayed coffee match notifications. Pairing notifications are now delivered instantly.

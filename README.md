@@ -16,7 +16,7 @@
 ![License](https://img.shields.io/badge/License-MIT-purple)
 ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)
 
-**CoffeeConnect** is a Spring Boot application that helps colleagues discover, connect, and chat over coffee. It features spontaneous matching, video calls, real-time messaging, voice recording, media sharing, and a full admin portal.
+CoffeeConnect is a Spring Boot application designed to help colleagues discover, connect, and chat over coffee. It features spontaneous matching, peer-to-peer video calls, real-time messaging, voice recording, media sharing, and a full administrative dashboard.
 
 > *"Coffee is a language in itself."* — Jackie Chan
 
@@ -63,7 +63,7 @@
    ```
 3. Open `http://localhost:8080` in your browser.
 
-The application is pre-configured to use an H2 in-memory database for local development, so no external database setup is required to get started. By default, the app runs on port `8080`. You can override this and other settings via standard Spring Boot properties (e.g., `server.port` or `SPRING_DATASOURCE_URL`).
+The application comes pre-configured to use an H2 in-memory database for local development, so no external database setup is required. By default, the app runs on port `8080`. You can override this and other settings via standard Spring Boot properties (e.g., `server.port` or `SPRING_DATASOURCE_URL`).
 
 ### Usage Tips
 
@@ -92,9 +92,9 @@ The application is pre-configured to use an H2 in-memory database for local deve
 
 ## Changelog
 
-### August 20, 2026
-- Cleaned up README structure and formatting for better readability.
-- Refined Getting Started section and environment configuration details.
+### August 21, 2026
+- Polished README structure and formatting for better readability.
+- Enhanced Getting Started section and environment configuration details.
 
 ### August 10, 2026
 - Resolved a minor timing anomaly in the WebSocket signaling layer that occasionally delayed coffee match notifications. Pairing notifications are now delivered instantly.

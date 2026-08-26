@@ -29,6 +29,8 @@ CoffeeConnect is a Spring Boot application that connects colleagues for spontane
 ### Getting Started
 ------------------
 
+To set up the application:
+
 ### Environment Prerequisites
 
 *   **JDK 21**
@@ -46,39 +48,32 @@ CoffeeConnect is a Spring Boot application that connects colleagues for spontane
     ```bash
     mvn spring-boot:run
     ```
-3.  Open `http://localhost:8080` in your browser.
+3.  Open your browser and navigate to `http://localhost:8080`.
 
-### Usage Tips
---------------
+### Usage
+------------
 
-*   **Set your availability**: Update your status to "Open for Coffee" to appear in the matching queue.
+*   **Update your availability**: Set your status to "Open for Coffee" to appear in the matching queue.
 *   **Use interest tags**: Add at least three tags to improve match quality. The matching algorithm favors shared interests over random pairing.
-*   **Try voice notes**: Record a quick voice message from the chat window to add a personal touch to your conversations.
+*   **Record voice notes**: Use the chat window to record quick voice messages.
 
 ### Roadmap
 ------------
 
-*   **Local Coffee Events**
-    *   Post and discover local coffee events inside the org.
-    *   Bean-of-the-week notifications.
-    *   Calendar sync with company events.
-*   **Advanced Call Features**
-    *   End-to-end encrypted calls.
-    *   P2P audio fallback modes.
-    *   Group huddles with breakout rooms.
-*   **Connection Analytics**
-    *   Anonymized coffee consumption analytics.
-    *   Heat map of active chats.
-    *   Export org-wide connection graphs.
-*   **SSO & Federation**
-    *   SSO connectors (Google, GitHub, Okta).
-    *   Cross-org coffee invites.
-    *   Public coffee shop directory.
+Future updates will focus on:
+
+*   **Local Coffee Events**: Discover and post local coffee events, as well as bean-of-the-week notifications and calendar sync.
+*   **Advanced Call Features**: Introduce end-to-end encrypted calls, P2P audio fallback modes, and group huddles with breakout rooms.
+*   **Connection Analytics**: Provide anonymized coffee consumption analytics, heat maps of active chats, and export org-wide connection graphs.
+*   **SSO & Federation**: Implement SSO connectors (Google, GitHub, Okta), cross-org coffee invites, and a public coffee shop directory.
 
 ### License
----------
+------------
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License.
+
+### Badges
+------------
 
 [![Java 21](https://img.shields.io/badge/Java-21-blue)](https://www.java.com)
 [![Spring Boot 3.4.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green)](https://spring.io/projects/spring-boot)

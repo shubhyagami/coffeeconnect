@@ -1,19 +1,19 @@
 # CoffeeConnect  
 
-A Spring Boot application that enables spontaneous coffee chats among colleagues. It offers random 15‑minute matches, interest‑based tagging, real‑time messaging, peer‑to‑peer video calls, and an admin dashboard for monitoring and analytics.  
+A Spring Boot application that facilitates spontaneous 15‑minute coffee chats between colleagues. Matches are random, interest‑based, and support rich messaging and video calls, while an admin portal provides monitoring and analytics.
 
 ---  
 
 ## Overview  
 
-CoffeeConnect pairs coworkers for short, informal coffee conversations. Users can add interest tags to improve match relevance, exchange messages with media support, start video calls via WebRTC, and view analytics through an admin portal.  
+CoffeeConnect connects coworkers for brief, informal conversations. Users can add interest tags to improve match relevance, communicate via real‑time chat with media support, initiate video calls using WebRTC, and view analytics through an admin dashboard.
 
 ---  
 
-## Features  
+## Key Features  
 
-- **Spontaneous Matching** – Connect with a random colleague for a 15‑minute coffee chat.  
-- **Interest Tags** – Add topics such as “Latte Art”, “Java Debugging”, etc., to help surface relevant matches.  
+- **Spontaneous Matching** – Random 15‑minute coffee chats with a colleague.  
+- **Interest Tags** – Add topics (e.g., “Latte Art”, “Java Debugging”) to refine matches.  
 - **Rich Messaging** – Real‑time chat via WebSockets with voice notes and media sharing.  
 - **Video Calls** – Peer‑to‑peer WebRTC calls with low‑latency signaling.  
 - **Admin Portal** – Dashboard for user management, activity monitoring, and anonymized analytics.  
@@ -53,9 +53,9 @@ Open a browser at **http://localhost:8080**.
 
 ## Usage  
 
-- Set your status to **“Open for Coffee”** to join the matching queue.  
-- Add at least three interest tags to improve match relevance.  
-- Record and send voice notes directly in the chat window.  
+1. Set your status to **“Open for Coffee”** to join the matching queue.  
+2. Add at least three interest tags to improve match relevance.  
+3. Record and send voice notes directly in the chat window.  
 
 ---  
 

@@ -1,103 +1,102 @@
-# CoffeeConnect  
+# CoffeeConnect
 
-A Spring Boot application that facilitates spontaneous 15‑minute coffee chats between colleagues. Matches are random, interest‑based, and support rich messaging and video calls, while an admin portal provides monitoring and analytics.
+A lightweight Spring Boot app that enables spontaneous 15‑minute coffee chats between coworkers.  
+Random, interest‑based matching, real‑time messaging, WebRTC video calls, and an admin portal for monitoring.
 
----  
+---
 
-## Overview  
-
-CoffeeConnect connects coworkers for brief, informal conversations. Users can add interest tags to improve match relevance, communicate via real‑time chat with media support, initiate video calls using WebRTC, and view analytics through an admin dashboard.
-
----  
-
-## Key Features  
-
-- **Spontaneous Matching** – Random 15‑minute coffee chats with a colleague.  
-- **Interest Tags** – Add topics (e.g., “Latte Art”, “Java Debugging”) to refine matches.  
-- **Rich Messaging** – Real‑time chat via WebSockets with voice notes and media sharing.  
-- **Video Calls** – Peer‑to‑peer WebRTC calls with low‑latency signaling.  
-- **Admin Portal** – Dashboard for user management, activity monitoring, and anonymized analytics.  
-
----  
-
-## Technical Overview  
-
-- **Language:** Java 21  
-- **Framework:** Spring Boot 3.4.4  
-- **Database:** PostgreSQL  
-- **Frontend:** Thymeleaf + Bootstrap 5  
-- **WebSocket:** STOMP over SockJS  
-- **WebRTC:** Peer‑to‑peer media with raw WebSocket signaling  
-- **Build Tool:** Maven  
-
----  
-
-## Getting Started  
-
-### Prerequisites  
-
-- JDK 21  
-- Maven 3.9+  
-
-### Run the Application  
+## Quick Start
 
 ```bash
 git clone https://github.com/shubhyagami/coffeeconnect.git
 cd coffeeconnect
 mvn spring-boot:run
-```  
+```
 
-Open a browser at **http://localhost:8080**.  
+Open <http://localhost:8080> to start using the app.
 
----  
+---
 
-## Usage  
+## Features
 
-1. Set your status to **“Open for Coffee”** to join the matching queue.  
-2. Add at least three interest tags to improve match relevance.  
-3. Record and send voice notes directly in the chat window.  
+| Feature | Description |
+|---------|--------------|
+| **Spontaneous Matching** | 15‑minute random chat sessions start when both users are *Open for Coffee*. |
+| **Interest Tags** | Add topics (e.g., “Latte Art”, “Java Debugging”) to refine match relevance. |
+| **Rich Messaging** | WebSocket‑powered chat with voice notes and media uploads. |
+| **WebRTC Video** | Peer‑to‑peer video calls with low‑latency signaling. |
+| **Admin Dashboard** | User & activity management, anonymised analytics, and reporting. |
 
----  
+---
 
-## Roadmap  
+## Architecture & Technology
 
-- Calendar integration for local coffee events and “bean‑of‑the‑week” notifications.  
-- End‑to‑end encryption for calls, P2P audio fallback, and support for group huddles.  
-- Connection analytics, heat‑map visualizations, and exportable org‑wide connection graphs.  
-- SSO connectors (Google, GitHub, Okta), cross‑organization coffee invites, and a public coffee‑shop directory.  
+- **Language**: Java 21
+- **Framework**: Spring Boot 3.4.4
+- **Database**: PostgreSQL
+- **Frontend**: Thymeleaf + Bootstrap 5
+- **Real‑time**: STOMP over SockJS (WebSocket)
+- **Video**: WebRTC via raw WebSocket signalling
+- **Build**: Maven
 
----  
+---
 
-## License  
+## Prerequisites
 
-MIT © 2026  
+- JDK 21
+- Maven 3.9+
+- PostgreSQL (create a database named `coffeeconnect`)
 
----  
+`application.yml` (under `src/main/resources`) contains default config.  
+If you prefer environment variables, set:
 
-## Badges  
+```bash
+export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/coffeeconnect
+export SPRING_DATASOURCE_USERNAME=postgres
+export SPRING_DATASOURCE_PASSWORD=postgres
+```
 
-[![Java 21](https://img.shields.io/badge/Java-21-blue)](https://www.oracle.com/java/technologies/downloads/)  
-[![Spring Boot 3.4.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green)](https://spring.io/projects/spring-boot)  
-[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)](https://www.postgresql.org)  
-[![License](https://img.shields.io/badge/License-MIT-purple)](https://github.com/shubhyagami/coffeeconnect/blob/main/LICENSE)  
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)](https://github.com/shubhyagami/coffeeconnect/pulls)  
+---
 
----  
+## Using the App
 
-## Changelog  
+1. Log in / register.  
+2. Set your status to **“Open for Coffee”** to be added to the matching queue.  
+3. Add at least three interest tags.  
+4. When matched, chat, send voice notes, or start a WebRTC video call.  
+5. After the session ends, the status automatically reverts to *Away*.
 
-- **August 21, 2026** – Refined README structure and clarified environment configuration.  
-- **August 10, 2026** – Fixed a WebSocket timing issue that intermittently delayed match notifications.  
-- **July 15, 2026** – Added interest‑tag support and expanded voice‑note functionality.  
+---
 
----  
+## Roadmap
 
-## Contributing  
+- Calendar integration & scheduled coffee events.  
+- End‑to‑end encryption for calls.  
+- P2P audio fallback & group huddles.  
+- SSO with Google/GitHub/Okta.  
+- Cross‑organization invites & public coffee‑shop directory.
 
-Pull requests are welcome. Please open an issue first to discuss any major changes.  
+---
 
----  
+## Contributing
 
-## Contact  
+Pull requests are welcome. For major changes, open an issue first.  
+All contributions must pass the automated test suite (`mvn test`) and follow the code style guidelines in `pom.xml`.
 
-For questions or feedback, reach out to the maintainer at **shubhyagami** on GitHub.
+---
+
+## License
+
+MIT © 2026 [shubhyagami](https://github.com/shubhyagami)
+
+---
+
+## Badges
+
+![Build](https://img.shields.io/github/actions/workflow/status/shubhyagami/coffeeconnect/ci.yml?branch=main&label=Build&logo=github)
+![Java 21](https://img.shields.io/badge/java-21-blue?logo=oracle)
+![Spring Boot 3.4](https://img.shields.io/badge/spring%20boot-3.4-green?logo=spring)
+![PostgreSQL](https://img.shields.io/badge/database-postgresql-blue?logo=postgresql)
+![License MIT](https://img.shields.io/badge/license-MIT-purple)
+
+---

@@ -1,20 +1,20 @@
 # CoffeeConnect
 
-CoffeeConnect is a lightweight Spring Boot application that lets coworkers instantly pair for a 15‑minute coffee chat.  
-Features include interest‑based matchmaking, real‑time text and media chat, and a peer‑to‑peer WebRTC video call.  
-An optional admin dashboard shows basic user metrics and analytics.
+CoffeeConnect is a lightweight Spring Boot app that lets coworkers pair for a quick 15‑minute coffee chat.  
+It offers interest‑based matching, real‑time text, media and voice chat, and a peer‑to‑peer WebRTC video call.  
+An optional admin dashboard shows basic user metrics.
 
 ---
 
 ## Table of Contents
+- [Overview](#overview)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
   - [Local Development](#local-development)
   - [Docker](#docker)
 - [Configuration](#configuration)
-- [How to Use](#how-to-use)
+- [Usage](#usage)
 - [Development](#development)
 - [Contributing](#contributing)
 - [License](#license)
@@ -23,99 +23,115 @@ An optional admin dashboard shows basic user metrics and analytics.
 
 ---
 
-## Features
+## Overview
 
-- **Instant & Interest‑Based Matching** – 15‑minute sessions between matched colleagues.  
-- **Interest Tags** – Add topics to improve match relevance.  
-- **Real‑time Chat** – Send text, images, and voice notes via WebSocket/STOMP.  
-- **WebRTC Video Call** – Low‑latency peer‑to‑peer call with WebSocket signaling.  
-- **Admin Dashboard** – View users, active conversations, and aggregated analytics.  
+- **Matchmaking** – an algorithm queues users marked as *Open for Coffee* and pairs them within 15 minutes.
+- **Interest Tags** – add topics (e.g., Java, Coffee Brewing) to improve match relevance.
+- **Real‑time Chat** – WebSocket/STOMP delivers messages, images, and voice notes instantly.
+- **WebRTC Video** – a low‑latency peer‑to‑peer call using WebSocket signaling.
+- **Admin Dashboard** – `/admin` shows users, active conversations, and aggregated metrics.
 - **Open‑Source** – MIT licensed.
 
 ---
 
 ## Tech Stack
 
-- **Java 21**
-- **Spring Boot 3.4.4**
-- **PostgreSQL**
-- **Thymeleaf + Bootstrap 5** (server‑side rendering)
-- **WebSocket** (STOMP over SockJS)
-- **Maven**
-- **Docker** (optional)
+| Component | Version |
+|------------|---------|
+| Java | 21 |
+| Spring Boot | 3.4.4 |
+| PostgreSQL | |
+| Thymeleaf / Bootstrap 5 | |
+| WebSocket (STOMP over SockJS) | |
+| Maven | 3.9+ |
+| Docker | optional |
 
 ---
 
-## Getting Started
+## Quick Start
 
 ### Prerequisites
-
 - JDK 21
 - PostgreSQL (or any JDBC‑compatible database)
-- Maven 3.9+ (or use the provided Docker image)
-- Docker (if you prefer a containerised setup)
+- Maven 3.9+ (or the provided Docker image)
+- Docker (if you prefer containers)
 
 ### Local Development
 
-    git clone https://github.com/shubhyagami/coffeeconnect.git
-    cd coffeeconnect
-    mvn spring-boot:run
+```bash
+git clone https://github.com/shubhyagami/coffeeconnect.git
+cd coffeeconnect
+mvn spring-boot:run
+```
 
-Open <http://localhost:8080> in your browser.
+Open <http://localhost:8080>.
 
 ### Docker
 
-Build the image and run it:
+```bash
+docker build -t coffeeconnect:latest .
+docker run -d -p 8080:8080 \
+  --env-file .env \
+  coffeeconnect:latest
+```
 
-    docker build -t coffeeconnect:latest .
-    docker run -d -p 8080:8080 --env-file .env coffeeconnect:latest
-
-Create a **.env** file in the project root with the variables listed under *Configuration*.
+Create a **.env** file with the variables shown in *Configuration*.
 
 ---
 
 ## Configuration
 
 CoffeeConnect reads settings from environment variables or `src/main/resources/application.yml`.  
-The following environment variables have sensible defaults:
+The following variables have defaults; override them in `.env` or `application.yml`.
 
-| Variable              | Description                                 | Default |
-|-----------------------|---------------------------------------------|---------|
-| `DATASOURCE_URL`      | JDBC URL for the database                   | `jdbc:postgresql://localhost:5432/coffeeconnect` |
-| `DATASOURCE_USERNAME` | Database user                              | `postgres` |
-| `DATASOURCE_PASSWORD` | Database password                           | `postgres` |
-| `ADMIN_USERNAME`      | Admin portal login                           | `admin` |
-| `ADMIN_PASSWORD`      | Admin portal password                       | `admin` |
+| Variable | Description | Default |
+|----------|-------------|--------|
+| `DATASOURCE_URL` | JDBC URL | `jdbc:postgresql://localhost:5432/coffeeconnect` |
+| `DATASOURCE_USERNAME` | DB user | `postgres` |
+| `DATASOURCE_PASSWORD` | DB password | `postgres` |
+| `ADMIN_USERNAME` | Admin login | `admin` |
+| `ADMIN_PASSWORD` | Admin password | `admin` |
 
-Override any setting in `application.yml` if you prefer.
+Example `.env`:
+
+```
+DATASOURCE_URL=jdbc:postgresql://db:5432/coffeeconnect
+DATASOURCE_USERNAME=coffee_user
+DATASOURCE_PASSWORD=secret
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=secret
+```
 
 ---
 
-## How to Use
+## Usage
 
-1. **Log in** as a regular user or as the admin.  
-2. Set your status to **“Open for Coffee”** to enter the matchmaking queue.  
-3. Add at least three interest tags (e.g. *Java*, *Coffee Brewing*, *Design Patterns*).  
-4. When a match is found, a notification appears in the chat window.  
-5. Use the chat to send text, images, or voice notes. Click **Video Call** to start a WebRTC session.  
-6. Admins can visit `/admin` to view user lists, active conversations, and aggregated metrics.
+1. Log in as a user or the admin.  
+2. Set status to **“Open for Coffee”** to enter the matchmaking queue.  
+3. Add at least three interest tags.  
+4. When a match is found, a notification appears.  
+5. Use the chat to send text, images, or voice notes.  
+6. Click **Video Call** to start a WebRTC session.  
+7. Admins can visit `/admin` for user lists, active sessions, and metrics.
 
 ---
 
 ## Development
 
-    mvn test
-    mvn fmt:format
+```bash
+mvn test
+mvn fmt:format
+```
 
-The project follows standard Maven conventions and uses Spring Boot DevTools for hot reloading.
+The project follows Maven conventions and uses Spring Boot DevTools for hot reloading.
 
 ---
 
 ## Contributing
 
-Pull requests are welcome!  
+Pull requests are welcome.  
 For large changes, open an issue first.  
-Make sure all tests pass and style checks succeed before submitting.
+Ensure all tests pass and code style checks succeed before submitting.
 
 ---
 
@@ -127,21 +143,19 @@ MIT © 2026, shubhyagami
 
 ## Badges
 
-![Build status](https://img.shields.io/github/actions/workflow/status/shubhyagami/coffeeconnect/maven.yml?label=Build&logo=github)
-![Java 21](https://img.shields.io/badge/Java-21-blue.svg)
-![Spring Boot 3.4.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green.svg)
-![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue.svg)
-![Docker](https://img.shields.io/badge/Docker-Compose-2496ED.svg)
-![License MIT](https://img.shields.io/badge/License-MIT-purple.svg)
-![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)
+![Build Status](https://img.shields.io/github/actions/workflow/status/shubhyagami/coffeeconnect/maven.yml?branch=main&label=build&logo=github)
+![Java 21](https://img.shields.io/badge/Java-21-blue)
+![Spring Boot 3.4.4](https://img.shields.io/badge/Spring%20Boot-3.4.4-green)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED)
+![License MIT](https://img.shields.io/badge/License-MIT-purple)
+![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)
 
 ---
 
 ## Changelog
 
-- **2026‑09‑06** – Minor README tidy‑up, updated badges.  
-- **2026‑09‑03** – Added Docker support and badges.  
-- **2026‑09‑02** – Minor README cleanup.  
-- **2026‑08‑21** – Refined structure and clarified environment configuration.  
-- **2026‑08‑10** – Fixed WebSocket timing issue that delayed match notifications.  
-- **2026‑07‑15** – Added interest‑tag support and voice‑note functionality.
+- **2026‑09‑06**: README tidy‑up, updated badges.  
+- **2026‑09‑03**: Added Docker support and badges.  
+- **2026‑08‑10**: Fixed WebSocket timing issue.  
+- **2026‑07‑15**: Added interest‑tag and voice‑note support.

@@ -1,19 +1,19 @@
 # CoffeeConnect
 
-A lightweight Spring Boot application that helps coworkers find a quick 15‑minute coffee chat.  
-It matches users who are “Open for Coffee”, lets them exchange text, images, voice notes and start a WebRTC video call.  
-An optional admin dashboard `/admin` displays basic metrics.
+CoffeeConnect is a lightweight Spring Boot application that connects coworkers for quick 15‑minute coffee chats.  
+It matches users who mark themselves as “Open for Coffee”, lets them exchange text, images, voice notes, and start a WebRTC video call.  
+An optional admin dashboard (`/admin`) shows user lists, active sessions, and basic metrics.
 
 ---
 
 ## Badges
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/shubhyagami/coffeeconnect/maven.yml?branch=main&label=build&logo=github)](https://github.com/shubhyagami/coffeeconnect/actions)
-[![Java](https://img.shields.io/badge/Java-21-blue)](https://openjdk.java.net/projects/jdk/21/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.4-green)](https://spring.io/projects/spring-boot)
-[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)](https://www.postgresql.org/)
-[![Docker Compose](https://img.shields.io/badge/Docker%20Compose-Compose-2496ED)](https://docs.docker.com/compose/)
-[![License](https://img.shields.io/badge/License-MIT-purple)](LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/shubhyagami/coffeeconnect/maven.yml?branch=main&label=build&logo=github)](https://github.com/shubhyagami/coffeeconnect/actions)  
+[![Java](https://img.shields.io/badge/Java-21-blue)](https://openjdk.java.net/projects/jdk/21/)  
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.4-green)](https://spring.io/projects/spring-boot)  
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)](https://www.postgresql.org/)  
+[![Docker Compose](https://img.shields.io/badge/Docker%20Compose-Compose-2496ED)](https://docs.docker.com/compose/)  
+[![License](https://img.shields.io/badge/License-MIT-purple)](LICENSE)  
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)](CONTRIBUTING.md)
 
 ---
@@ -37,22 +37,25 @@ An optional admin dashboard `/admin` displays basic metrics.
 
 ## Overview
 
-CoffeeConnect is built with **Spring Boot 3.4.4** and runs on **Java 21**.  
-It uses a PostgreSQL database, Thymeleaf + Bootstrap 5 for the UI, and WebSocket/STOMP with SockJS for real‑time communication.  
-All features are self‑contained: the video call is a peer‑to‑peer WebRTC session signaled through the same WebSocket channel.
+- **Framework**: Spring Boot 3.4.4  
+- **Language**: Java 21  
+- **Database**: PostgreSQL (default in‑memory H2 for quick starts)  
+- **UI**: Thymeleaf + Bootstrap 5  
+- **Realtime**: WebSocket/STOMP with SockJS  
+- **Video**: Peer‑to‑peer WebRTC, signaled via WebSocket  
+
+All features are bundled into a single binary; no external services are required beyond the database.
 
 ---
 
 ## Features
 
-| Feature | Description |
-|---------|-------------|
-| Matchmaking | Queues users marked “Open for Coffee” and pairs them within 15 minutes. |
-| Interest Tags | Users can add tags (e.g., *Java*, *Coffee Brewing*) to improve matching relevance. |
-| Text & Media Chat | Real‑time text, image, and voice‑note messaging via WebSocket/STOMP. |
-| WebRTC Video | Low‑latency peer‑to‑peer video call with WebSocket signaling. |
-| Admin Dashboard | `/admin` shows user lists, active sessions, and simple metrics. |
-| Open‑Source | MIT licensed, ready for contribution. |
+- **Matchmaking** – Queues users marked “Open for Coffee” and pairs them within 15 minutes.  
+- **Interest Tags** – Add tags (e.g., *Java*, *Coffee Brewing*) to improve matching relevance.  
+- **Real‑time Chat** – Send text, images, and voice notes via WebSocket/STOMP.  
+- **WebRTC Video** – Low‑latency peer‑to‑peer video call with WebSocket signaling.  
+- **Admin Dashboard** – `/admin` shows user lists, active sessions, and simple metrics.  
+- **Open‑Source** – MIT licensed, ready for contribution.
 
 ---
 
@@ -75,11 +78,13 @@ All features are self‑contained: the video call is a peer‑to‑peer WebRTC s
 
 ### Prerequisites
 
-- JDK 21
-- PostgreSQL (or any JDBC‑compatible database)
+- JDK 21  
+- PostgreSQL (or any JDBC‑compatible database)  
 - Maven 3.9+ (or Docker, if you prefer containers)
 
 ### Local Development
+
+Clone the repo and run:
 
 ```bash
 git clone https://github.com/shubhyagami/coffeeconnect.git
@@ -89,8 +94,8 @@ mvn spring-boot:run
 
 Open <http://localhost:8080> in a browser.
 
-> **Tip:** The application starts with a default in‑memory H2 database if no external DB is configured.  
-> For production, provide a PostgreSQL connection (see *Configuration*).
+If no external DB is configured, the app starts with an in‑memory H2 database.  
+For production, provide a PostgreSQL connection (see *Configuration*).
 
 ### Docker
 
@@ -101,7 +106,7 @@ docker run -d -p 8080:8080 \
   coffeeconnect:latest
 ```
 
-Create a **.env** file with the variables shown in *Configuration*.
+Create a **.env** file in the project root with the environment variables shown below.
 
 ---
 
@@ -120,13 +125,11 @@ The following variables have defaults; override them in `.env` or `application.y
 
 Example `.env`:
 
-```dotenv
-DATASOURCE_URL=jdbc:postgresql://db:5432/coffeeconnect
-DATASOURCE_USERNAME=coffee_user
-DATASOURCE_PASSWORD=secret
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=secret
-```
+    DATASOURCE_URL=jdbc:postgresql://db:5432/coffeeconnect
+    DATASOURCE_USERNAME=coffee_user
+    DATASOURCE_PASSWORD=secret
+    ADMIN_USERNAME=admin
+    ADMIN_PASSWORD=secret
 
 `application.yml` can be used for additional Spring configuration.
 
@@ -151,7 +154,7 @@ mvn test
 mvn fmt:format
 ```
 
-The project follows Maven conventions, uses Spring Boot DevTools for hot reloading, and follows the standard Java code style.
+The project follows standard Maven conventions, uses Spring Boot DevTools for hot reloading, and enforces the typical Java code style.
 
 ---
 
@@ -159,7 +162,7 @@ The project follows Maven conventions, uses Spring Boot DevTools for hot reloadi
 
 Pull requests are welcome.  
 For large changes, open an issue first.  
-Ensure all tests pass and code style checks succeed before submitting.
+Make sure all tests pass and code style checks succeed before submitting.
 
 ---
 
@@ -171,7 +174,7 @@ MIT © 2026, shubhyagami
 
 ## Changelog
 
-- **2026‑09‑07**: README cleaned up, badges updated.  
-- **2026‑09‑03**: Added Docker support and badges.  
-- **2026‑08‑10**: Fixed WebSocket timing issue.  
-- **2026‑07‑15**: Added interest‑tag and voice‑note support.
+- **2026‑09‑07** – Updated README, badges, and added Docker support.  
+- **2026‑09‑03** – Added Docker support and badges.  
+- **2026‑08‑10** – Fixed WebSocket timing issue.  
+- **2026‑07‑15** – Added interest‑tag and voice‑note support.

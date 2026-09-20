@@ -1,19 +1,20 @@
 # CoffeeConnect
 
-A lightweight Spring Boot application that pairs coworkers for quick 15‑minute coffee chats.  
-Mark yourself **“Open for Coffee”** and the system matches you with another available colleague.  Inside a match you can exchange text, images, voice notes, or start a low‑latency WebRTC video call.  The optional admin dashboard (`/admin`) shows users, active sessions, and a handful of metrics.
+A lightweight Spring Boot application that pairs coworkers for a quick 15‑minute coffee chat.  Users can mark themselves **“Open for Coffee”** and the system automatically matches them with another available colleague.  Inside a match you can exchange text, images, voice notes, or start a low‑latency WebRTC video call.  A simple admin dashboard (`/admin`) lets you see users, active sessions, and basic metrics.
 
 ---
 
-## 🎉 Status
+## 📦 Build & Meta
 
-![Build](https://img.shields.io/github/actions/workflow/status/shubhyagami/coffeeconnect/maven.yml?branch=main&label=build&logo=github)
-![Java](https://img.shields.io/badge/Java-21-blue)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.4-green)
-![Database](https://img.shields.io/badge/DB-PostgreSQL-blue)
-![Docker](https://img.shields.io/badge/Docker-Compose-2496ED)
-![License](https://img.shields.io/badge/License-MIT-purple)
-![PRs welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)
+| Badge |
+|-------|
+| ![Build](https://img.shields.io/github/actions/workflow/status/shubhyagami/coffeeconnect/maven.yml?branch=main&label=build&logo=github) |
+| ![Java](https://img.shields.io/badge/Java-21-blue) |
+| ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.4-green) |
+| ![Database](https://img.shields.io/badge/DB-PostgreSQL-blue) |
+| ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED) |
+| ![License](https://img.shields.io/badge/License-MIT-purple) |
+| ![PRs welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen) |
 
 ---
 
@@ -22,27 +23,34 @@ Mark yourself **“Open for Coffee”** and the system matches you with another 
 ```bash
 git clone https://github.com/shubhyagami/coffeeconnect.git
 cd coffeeconnect
-# Run locally with Maven
-mvn spring-boot:run
+```
 
-# Or with Docker Compose
+### Run with Maven
+
+```bash
+mvn spring-boot:run
+```
+
+### Run with Docker Compose
+
+```bash
 docker compose up -d
 ```
 
-Open <http://localhost:8080> to use the UI.  If you don’t provide a database, an in‑memory H2 database is used automatically.
+Open <http://localhost:8080> to use the UI.  If no database is configured, an in‑memory H2 database is used automatically.
 
 ---
 
 ## ✨ Features
 
 | Feature | Description |
-|--------|------------|
-| **Matchmaking** | Automatic pairing of users marked “Open for Coffee” within 15 minutes. |
+|--------|-------------|
+| **Matchmaking** | Users marked “Open for Coffee” are paired automatically within 15 minutes. |
 | **Interest tags** | Add tags (e.g. *Java*, *Coffee Brewing*) to improve match quality. |
-| **Real‑time chat** | Text, images, and voice notes over WebSocket/STOMP. |
+| **Real‑time chat** | Text, images, and voice notes via WebSocket/STOMP. |
 | **WebRTC video** | Low‑latency peer‑to‑peer video, signaled over WebSocket. |
 | **Admin dashboard** | `/admin` page lists users, sessions, and basic metrics. |
-| **Hot‑reload** | Spring Boot DevTools provides instant code change refresh. |
+| **Hot‑reload** | Spring Boot DevTools refreshes the app on code changes. |
 
 ---
 
@@ -50,10 +58,10 @@ Open <http://localhost:8080> to use the UI.  If you don’t provide a database, 
 
 ### Prerequisites
 
-- JDK 21 (OpenJDK or any modern distribution)
-- Maven 3.9 + (or use Docker)
-- (Optional) PostgreSQL or any JDBC‑compatible database
-- Docker (for containerized deployment)
+- **JDK 21** (any modern distribution)
+- **Maven 3.9+** (or use Docker)
+- Optional: PostgreSQL or any JDBC‑compatible database
+- **Docker** (for containerized deployment)
 
 ### Local development
 
@@ -61,8 +69,7 @@ Open <http://localhost:8080> to use the UI.  If you don’t provide a database, 
 mvn spring-boot:run
 ```
 
-The app starts at <http://localhost:8080>.  
-If no datasource is configured, an in‑memory H2 instance is used automatically.
+The app runs at <http://localhost:8080>.  If no datasource is set, an in‑memory H2 instance is used automatically.
 
 ### Docker
 
@@ -73,13 +80,13 @@ docker run -d -p 8080:8080 \
   coffeeconnect:latest
 ```
 
-Create a `.env` file with the variables listed in **Configuration**.
+Create a `.env` file with the variables listed in the **Configuration** section.
 
 ---
 
 ## ⚙️ Configuration
 
-CoffeeConnect reads settings from environment variables or `src/main/resources/application.yml`. Variables with defaults can be overridden.
+CoffeeConnect reads settings from environment variables **or** `src/main/resources/application.yml`.  Variables that have defaults can be overridden.
 
 | Variable | Description | Default |
 |----------|-------------|---------|
@@ -89,7 +96,7 @@ CoffeeConnect reads settings from environment variables or `src/main/resources/a
 | `ADMIN_USERNAME` | Admin login | `admin` |
 | `ADMIN_PASSWORD` | Admin password | `admin` |
 
-**Example `.env`:**
+**Example `.env`:**
 
 ```
 DATASOURCE_URL=jdbc:postgresql://db:5432/coffeeconnect
@@ -99,7 +106,7 @@ ADMIN_USERNAME=admin
 ADMIN_PASSWORD=secret
 ```
 
-You can also set the same properties in `application.yml`.
+These can also be configured directly in `application.yml`.
 
 ---
 
@@ -118,14 +125,14 @@ You can also set the same properties in `application.yml`.
 ## 🧪 Development
 
 ```bash
-# Run tests
+# Run unit tests
 mvn test
 
 # Format code (uses fmt-maven-plugin)
 mvn fmt:format
 ```
 
-The project follows standard Maven conventions, uses Spring Boot DevTools for hot reloading, and enforces a basic Java code style.
+The project follows standard Maven conventions and enforces a basic Java code style.
 
 ---
 
@@ -133,19 +140,20 @@ The project follows standard Maven conventions, uses Spring Boot DevTools for ho
 
 Pull requests are welcome!  
 For large changes, open an issue first.  
-Please ensure all tests pass and formatting checks succeed before submitting.
+Ensure all tests pass and formatting checks succeed before submitting.
 
 ---
 
 ## 📄 License
 
-MIT © 2026 shubhyagami
+MIT © 2026 shubhyagami
 
 ---
 
 ## 🗓️ Changelog
 
-- **2026‑09‑14** – README cleaned up, added quick‑start section, removed duplicate entries.  
-- **2026‑09‑07** – Added Docker support and badges.  
-- **2026‑08‑10** – Fixed WebSocket timing issue.  
+- **2026‑09‑20** – README updated for clarity and migrations to Docker compose.
+- **2026‑09‑14** – Added quick‑start section and removed duplicate entries.
+- **2026‑09‑07** – Docker support and badges added.
+- **2026‑08‑10** – Fixed WebSocket timing issue.
 - **2026‑07‑15** – Added interest‑tag and voice‑note support.

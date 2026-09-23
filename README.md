@@ -1,6 +1,9 @@
 # CoffeeConnect
 
-A lightweight Spring Boot application that pairs coworkers for a quick 15‑minute coffee chat.  Users can mark themselves **“Open for Coffee”** and the system automatically matches them with another available colleague.  Inside a match you can exchange text, images, voice notes, or start a low‑latency WebRTC video call.  A simple admin dashboard (`/admin`) lets you see users, active sessions, and basic metrics.
+A lightweight Spring Boot application that pairs coworkers for a quick 15‑minute coffee chat.  
+Users can mark themselves **Open for Coffee** and the system automatically matches them with another available colleague.  
+Inside a match you can exchange text, images, voice notes, or start a low‑latency WebRTC video call.  
+A simple admin dashboard (`/admin`) shows users, active sessions, and basic metrics.
 
 ---
 
@@ -31,26 +34,26 @@ cd coffeeconnect
 mvn spring-boot:run
 ```
 
+The application launches at `http://localhost:8080`.  If no datasource is configured, an in‑memory H2 database is used automatically.
+
 ### Run with Docker Compose
 
 ```bash
 docker compose up -d
 ```
 
-Open <http://localhost:8080> to use the UI.  If no database is configured, an in‑memory H2 database is used automatically.
+After a few seconds the UI is reachable at `http://localhost:8080`.
 
 ---
 
 ## ✨ Features
 
-| Feature | Description |
-|--------|-------------|
-| **Matchmaking** | Users marked “Open for Coffee” are paired automatically within 15 minutes. |
-| **Interest tags** | Add tags (e.g. *Java*, *Coffee Brewing*) to improve match quality. |
-| **Real‑time chat** | Text, images, and voice notes via WebSocket/STOMP. |
-| **WebRTC video** | Low‑latency peer‑to‑peer video, signaled over WebSocket. |
-| **Admin dashboard** | `/admin` page lists users, sessions, and basic metrics. |
-| **Hot‑reload** | Spring Boot DevTools refreshes the app on code changes. |
+- **Matchmaking** – Automatic pairing of users marked *Open for Coffee* within 15 minutes.  
+- **Interest tags** – Add tags (e.g. *Java*, *Coffee Brewing*) to refine matches.  
+- **Real‑time chat** – Text, images, and voice notes via WebSocket/STOMP.  
+- **WebRTC video** – Low‑latency peer‑to‑peer video call.  
+- **Admin dashboard** – `/admin` page lists users, sessions, and metrics.  
+- **Hot‑reload** – Spring Boot DevTools refreshes the app on code changes.
 
 ---
 
@@ -58,18 +61,15 @@ Open <http://localhost:8080> to use the UI.  If no database is configured, an in
 
 ### Prerequisites
 
-- **JDK 21** (any modern distribution)
-- **Maven 3.9+** (or use Docker)
-- Optional: PostgreSQL or any JDBC‑compatible database
-- **Docker** (for containerized deployment)
+- JDK 21 (any modern distribution)
+- Maven 3.9+ (to build/run with Maven) or Docker (for containerized deployment)
+- (Optional) PostgreSQL or any JDBC‑compatible database
 
 ### Local development
 
 ```bash
 mvn spring-boot:run
 ```
-
-The app runs at <http://localhost:8080>.  If no datasource is set, an in‑memory H2 instance is used automatically.
 
 ### Docker
 
@@ -86,15 +86,16 @@ Create a `.env` file with the variables listed in the **Configuration** section.
 
 ## ⚙️ Configuration
 
-CoffeeConnect reads settings from environment variables **or** `src/main/resources/application.yml`.  Variables that have defaults can be overridden.
+CoffeeConnect reads its settings from environment variables or `src/main/resources/application.yml`.  
+Variables that have defaults can be overridden.
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `DATASOURCE_URL` | JDBC URL | `jdbc:postgresql://localhost:5432/coffeeconnect` |
-| `DATASOURCE_USERNAME` | DB user | `postgres` |
-| `DATASOURCE_PASSWORD` | DB password | `postgres` |
-| `ADMIN_USERNAME` | Admin login | `admin` |
-| `ADMIN_PASSWORD` | Admin password | `admin` |
+| Variable            | Description                 | Default                              |
+|---------------------|------------------------------|--------------------------------------|
+| `DATASOURCE_URL`    | JDBC URL                     | `jdbc:postgresql://localhost:5432/coffeeconnect` |
+| `DATASOURCE_USERNAME` | DB user                | `postgres`                          |
+| `DATASOURCE_PASSWORD` | DB password          | `postgres`                          |
+| `ADMIN_USERNAME`    | Admin login                 | `admin`                             |
+| `ADMIN_PASSWORD`    | Admin password              | `admin`                             |
 
 **Example `.env`:**
 
@@ -112,13 +113,12 @@ These can also be configured directly in `application.yml`.
 
 ## 📖 Usage
 
-1. Log in (any user or the admin account).  
-2. Mark your status as **“Open for Coffee.”**  
-3. Add at least three interest tags.  
-4. When a match is found, a notification appears.  
-5. Use the chat panel to send text, images, or voice notes.  
-6. Click **Video Call** to start a WebRTC session.  
-7. Admins can visit `/admin` to monitor users and sessions.
+1. Log in as any user or as the admin account.  
+2. Click **Open for Coffee** and add at least three interest tags.  
+3. When a match is found, a notification appears.  
+4. Use the chat panel to send text, images, or voice notes.  
+5. Click **Video Call** to start a WebRTC session.  
+6. Admins can visit `/admin` to monitor users and sessions.
 
 ---
 
@@ -132,7 +132,7 @@ mvn test
 mvn fmt:format
 ```
 
-The project follows standard Maven conventions and enforces a basic Java code style.
+The project follows standard Maven conventions and enforces a basic Java code style.  
 
 ---
 
@@ -140,7 +140,7 @@ The project follows standard Maven conventions and enforces a basic Java code st
 
 Pull requests are welcome!  
 For large changes, open an issue first.  
-Ensure all tests pass and formatting checks succeed before submitting.
+Ensure that all tests pass and formatting checks succeed before submitting your PR.
 
 ---
 
@@ -152,8 +152,9 @@ MIT © 2026 shubhyagami
 
 ## 🗓️ Changelog
 
-- **2026‑09‑20** – README updated for clarity and migrations to Docker compose.
-- **2026‑09‑14** – Added quick‑start section and removed duplicate entries.
-- **2026‑09‑07** – Docker support and badges added.
-- **2026‑08‑10** – Fixed WebSocket timing issue.
+- **2026‑09‑23** – Minor README cleanup and updated Docker Compose instructions.  
+- **2026‑09‑20** – README updated for clarity and migrations to Docker compose.  
+- **2026‑09‑14** – Added quick‑start section and removed duplicate entries.  
+- **2026‑09‑07** – Docker support and badges added.  
+- **2026‑08‑10** – Fixed WebSocket timing issue.  
 - **2026‑07‑15** – Added interest‑tag and voice‑note support.

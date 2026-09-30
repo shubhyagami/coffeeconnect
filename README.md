@@ -1,30 +1,32 @@
 [K[2m  [2mmodel z-ai/glm-5.3-flash failed, trying next...[0m[0m
 [K[2m  [2mmodel deepseek-ai/deepseek-v4.1-flash failed, trying next...[0m[0m
-[K[2m  [2mmodel openai/gpt-oss-20b failed, trying next...[0m[0m
-[K[2m  [2mmodel openai/gpt-oss-120b failed, trying next...[0m[0m
 # CoffeeConnect
 
-CoffeeConnect is a lightweight Spring Boot application designed to foster spontaneous networking by pairing coworkers for short coffee chats. When a user marks themselves as **Open for Coffee**, the system automatically matches them with another available colleague and initializes a private session.
+**Foster spontaneous coffee chats at work.**
 
-![Build status](https://github.com/shubhyagami/coffeeconnect/actions/workflows/ci.yml/badge.svg)
+CoffeeConnect is a lightweight Spring Boot application that pairs coworkers for short coffee sessions. When a user marks themselves as **Open for Coffee**, the system automatically matches them with another available colleague and creates a private session for text, audio, or video communication.
+
+![Build Status](https://github.com/shubhyagami/coffeeconnect/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/github/license/shubhyagami/coffeeconnect)
-![Code coverage](https://img.shields.io/codecov/c/github/shubhyagami/coffeeconnect)
-![Java 21](https://img.shields.io/badge/Java-21-blue)
+![Code Coverage](https://img.shields.io/codecov/c/github/shubhyagami/coffeeconnect)
+![Java](https://img.shields.io/badge/Java-21-blue)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.4-brightgreen)
 
 ---
 
-## Table of Contents
+## Table of contents
 
 - [Overview](#overview)
-- [Features](#features)
+- [Key features](#key-features)
 - [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-  - [Local Maven Run](#local-maven-run)
-  - [Docker Compose](#docker-compose)
+- [Getting started](#getting-started)
+  - [Run locally with Maven](#run-locally-with-maven)
+  - [Run with Docker Compose](#run-with-docker-compose)
 - [Configuration](#configuration)
-- [Using the App](#using-the-app)
-- [Testing & Formatting](#testing--formatting)
+- [Using the app](#using-the-app)
+- [Development](#development)
+  - [Running tests](#running-tests)
+  - [Formatting code](#formatting-code)
 - [Contributing](#contributing)
 - [License](#license)
 - [Changelog](#changelog)
@@ -33,93 +35,124 @@ CoffeeConnect is a lightweight Spring Boot application designed to foster sponta
 
 ## Overview
 
-CoffeeConnect leverages a modern Java stack to provide real-time connectivity with minimal overhead.
+CoffeeConnect uses a modern Java stack to provide instant, low‑latency communication:
 
-- **Backend:** Java 21 & Spring Boot 3.4.4
-- **Persistence:** PostgreSQL (Production) / H2 (Development)
-- **Communication:** WebSocket/STOMP for messaging, WebRTC for low-latency video calls
-- **Management:** Integrated Admin Dashboard at `/admin`
+- **Backend** – Java 21, Spring Boot 3.4.4
+- **Persistence** – PostgreSQL (production), H2 (dev)
+- **Realtime** – WebSocket/STOMP, WebRTC
+- **Admin** – Dashboard at `/admin` for monitoring active sessions and usage
 
-## Features
+---
 
-- **Automatic Pairing:** Smart matching system for users currently "Open for Coffee."
-- **Rich Communication:** Support for text messages, image sharing, and voice notes.
-- **Live Video:** High-quality, peer-to-peer video calls via WebRTC.
-- **Admin Insights:** Monitor active sessions, user growth, and system metrics through a centralized dashboard.
-- **Developer Friendly:** Support for hot-reload to speed up the development cycle.
+## Key features
+
+- **Automatic pairing** – users marked as “Open for Coffee” are immediately matched
+- **Rich messaging** – chat, image, and voice note support
+- **Video calls** – WebRTC peer‑to‑peer sessions
+- **Admin dashboard** – session metrics, active user list, system health
+- **Hot‑reload** – rapid development cycle with Spring DevTools
+
+---
 
 ## Prerequisites
 
-- JDK 21
-- Maven 3.9+
-- Docker & Docker Compose (optional, for containerized deployment)
-- PostgreSQL (optional, for production-like local setup)
+- JDK 21
+- Maven 3.9+
+- Docker & Docker Compose (optional)
+- PostgreSQL (optional, for production‑like local setup)
 
-## Getting Started
+---
 
-### Local Maven Run
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/shubhyagami/coffeeconnect.git
-   cd coffeeconnect
-   ```
-2. Run the application:
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-3. Access the app at `http://localhost:8080`.
+## Getting started
 
-### Docker Compose
-For a fully configured environment including the database:
+### Run locally with Maven
+
+```bash
+git clone https://github.com/shubhyagami/coffeeconnect.git
+cd coffeeconnect
+./mvnw spring-boot:run
+```
+
+Open `http://localhost:8080` in a browser.
+
+### Run with Docker Compose
+
 ```bash
 docker-compose up -d
 ```
 
+The app is accessible at `http://localhost:8080`. The compose file starts a PostgreSQL container and the application.
+
+---
+
 ## Configuration
 
-The application uses `application.properties` (or `.yml`) for configuration. Key settings include:
-- `spring.datasource.url`: Database connection string.
-- `spring.websocket.stomp`: WebSocket configurations for real-time updates.
-- `server.port`: Port on which the application runs (default: 8080).
+Edit `src/main/resources/application.yml` (or `application.properties`). Important properties:
 
-## Using the App
+| Property | Default | Description |
+|----------|--------|------------|
+| `spring.datasource.url` | `jdbc:postgresql://localhost:5432/coffeeconnect` | JDBC URL |
+| `spring.datasource.username` | `postgres` | DB user |
+| `spring.datasource.password` | `postgres` | DB password |
+| `server.port` | `8080` | HTTP port |
+| `spring.websocket.stomp.endpoint` | `/ws` | WebSocket endpoint |
+| `coffeeconnect.admin.enabled` | `true` | Enable admin UI |
 
-1. **Join:** Register or log in to your profile.
-2. **Match:** Toggle your status to **"Open for Coffee."**
-3. **Connect:** Once matched, you will be redirected to a private session room.
-4. **Chat:** Use the integrated chat tools or initiate a video call to meet your colleague.
+---
 
-## Testing & Formatting
+## Using the app
 
-### Running Tests
-Execute the test suite using Maven:
+1. **Login / register** – create or sign in.
+2. **Toggle status** – set your presence to **Open for Coffee** in the profile panel.
+3. **Match** – the system will pair you with another open user.
+4. **Connect** – you’ll be redirected to a private room where you can chat, share media, or launch a video call.
+
+---
+
+## Development
+
+### Running tests
+
 ```bash
 ./mvnw test
 ```
 
-### Code Formatting
-To ensure consistent style across the project:
+The suite covers REST endpoints, WebSocket interactions, and pairing logic.
+
+### Formatting code
+
 ```bash
 ./mvnw spotless:apply
 ```
 
+This applies the project's code style configuration.
+
+---
+
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
 1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request.
+2. Create a feature branch (`git checkout -b feature/awesome`).
+3. Commit your changes (`git commit -m "Add awesome feature"`).
+4. Push (`git push origin feature/awesome`).
+5. Open a pull request.
+
+Please keep tests updated and adhere to the existing coding style.
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT – see the [LICENSE](LICENSE) file.
+
+---
 
 ## Changelog
 
-### v1.0.0 (2026-09-29)
-- Initial stable release.
-- Implemented WebRTC video integration.
-- Added Admin Dashboard with session metrics.
-- Updated to Spring Boot 3.4.4 and Java 21.
+### v1.0.0 – 2026‑09‑29
+
+- Initial stable release
+- WebRTC video integration
+- Admin dashboard with session metrics
+- Updated to Spring Boot 3.4.4 & Java 21
+---
